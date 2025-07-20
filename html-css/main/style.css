@@ -1,0 +1,171 @@
+/*
+CSS has two easy pieces: Selectors and Attributes
+=================================================
+1. Selectors: (* -> universal selector)
+    i. element selectors (element-name{})
+    ii. id selectors (#id-name{})
+    iii. class selectors (.class-name{})
+    iv. selecting more than one -> chain with a comma in between
+    v. space in between two means 'inside of' -> `h1 h2 {}` means all h2 inside of h1
+    vi. > in between two means 'one level deep in' -> `.hero > h2` means all h2 one level deep in .hero
+    vii. `element:first-child` -> selects the first child of 'element' 
+    -> Good practice:  keeping selectors as simple as possible
+    Selector-chaining can get really complicated.
+
+    More specific CSS selectors override less specific ones.
+    Specificity Hierarchy (from low to high):
+    - Element selectors (e.g., p, div)
+    - Class selectors (e.g., .box)
+    - Attribute selectors (e.g., [type="text"])
+    - ID selectors (e.g., #main)
+    - Inline styles (e.g., style="color: red;")
+    - !important (overrides almost everything)
+        Example:
+          #title {
+          color: blue;
+          }
+          .highlight {
+            color: red !important;
+          }
+          <h1 id="title" class="highlight">Hello</h1>
+          What happens?
+          -> Even though #title is more specific, .highlight uses !important,
+          so the text color will be red.
+----------------------------------------------------------------------------
+2. Attributes: 
+Once we have things selected, we need to add some attributes.
+
+Shorthands:
+-> margin/padding: top right bottom left -> clockwise (px or rem)
+-> margin/padding: top&bottom right&left (px or rem)
+-> margin/padding: all-4-sides (px or rem -> rem is relative to the base font-size)
+-> border: size type color
+
+Margin = Empty Space
+
+To be learned in detail:
+-> display: flex; OR display: grid; OR display: block; and so on...
+-> position property
+-> pseudo classes
+*/
+
+/* @keyframes -> used to create animations */
+@keyframes colorshift {
+    from {background-color: rgb(0, 236, 240);}
+    to {background-color: rgb(100, 255, 11);}
+    to {background-color: rgb(245, 253, 22);}
+    to {background-color: rgb(253, 157, 22);}
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: bisque;
+}
+main {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+div {
+    padding: 20px;
+    /* background-color: aqua;
+    background-image: url('sideeyechihuahua.jpg');
+    background-repeat: no-repeat;
+    background-size: fixed;
+    background-position: center; */
+    background: aqua url('sideeyechihuahua.jpg') no-repeat fixed center;
+    box-shadow: 10px 10px 5px 0px black;
+    margin: 20px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    text-align: center;
+    /* animation-name: colorshift;
+    animation-duration: 3s;
+    animation-timing-function: linear;
+    animation-delay: 2s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate; */
+    animation: colorshift 5s linear 2s infinite alternate;
+}
+
+pre {
+    background-color: yellowgreen;
+    width: 400px;
+    text-align: left;
+    justify-self: center;
+    justify-content: center;
+    justify-items: center;
+}
+
+.my-lists {
+    background-image: linear-gradient(to right, cyan, yellowgreen);
+}
+
+table {
+    background-color: burlywood;
+    border: 5px solid black;
+}
+
+div p:first-child {
+    color: red;
+    font: bold;
+}
+div p:nth-child(2) {
+    color: green;
+}
+div p:nth-child(3) {
+    color: blue;
+}
+
+img {
+    display: block;
+    margin: auto;
+}
+
+button, input[type="submit"], input[type="reset"] {
+    font-size: medium;
+    background-image: linear-gradient(to right, rgb(27, 63, 207), rgb(203, 78, 10));
+    color: white;
+    width: 20%;
+    height: 20%;
+}
+
+button:hover, input[type="submit"]:hover, input[type="reset"]:hover {
+    background-image: linear-gradient(to right, cyan, yellowgreen);
+    color: black;
+    cursor: pointer;
+    transition: 0.5s;
+    transform: translateY(-4px);
+}
+
+input[type="radio"]:hover, input[type="checkbox"]:hover {
+    cursor: pointer;
+}
+
+nav {
+    background-color: #333;
+}
+.navbar {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    background-color: #333;
+}
+.navbar li {
+    margin: 0;
+}
+.navbar li a {
+    display: block;
+    color: white;
+    padding: 14px 20px;
+    text-decoration: none;
+    transition: background 0.3s;
+}
+.navbar li a:hover {
+    background-color: #096dca;
+    transform: translateY(-4px);
+}
