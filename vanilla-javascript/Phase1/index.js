@@ -243,6 +243,26 @@ let person = {
 };
 console.log("Person's name:", person.name);
 
+/* Spread Operator ... (ES6): It allows an iterable such as an array or a string or an object to be expanded into individual elements.
+                          It essentially "spreads" out the contents of an iterable. */
+// example 1
+let numbers = [1, 2, 3, 4, 5];
+let maximum = Math.max(...numbers); // we can't directly put the array as the argument
+let minimum = Math.min(...numbers);
+console.log(maximum);
+// example 2
+let myFirstName = "Saptaparno";
+let letters = [...myFirstName].join("-");
+console.log(letters);
+// example 3
+let froooots = ["apple", "orange", "banana"];
+let vegetables = ["carrots", "celery", "potatoes"];
+let foods = [...froooots, ...vegetables, "eggs", "milk"];
+console.log(foods);
+// example 4
+const originalObject = { a: 1, b: 2 };
+const copiedObject = { ...originalObject };
+
 /* DOM Manipulation */
 function showAlert() {
     alert("Button was clicked!"); // alert <-> window.alert (same thing)
