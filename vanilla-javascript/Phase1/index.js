@@ -190,12 +190,50 @@ while(!loggedIn){
 
 /* Arrays */
 let fruits = ["apple", "banana", "mango"];
-fruits.push("grape");     // add item
-fruits.pop();             // remove last item
-// loop through array and print each fruit
-fruits.forEach((fruit) => {
-    console.log("Fruit:", fruit);
-});
+fruits.push("grape");     // push -> add an element to the end of the array // same as doing -> array[array.length] = element;
+fruits.pop();             // pop -> removes the last element
+fruits.unshift("orange"); // unshift -> adds an element to the beginning of the array
+fruits.shift();           // shift -> removes the first element
+let sizeOfFruits = fruits.length;
+console.log(sizeOfFruits);
+// for (let i=0; i<sizeOfFruits; i++) {
+//     console.log(`${fruits[i]} `);
+// }
+for (let fruit of fruits) {
+    console.log(`${fruit} `);
+}
+// fruits.forEach((fruit) => {
+//     console.log("Fruit:", fruit);
+// });
+// console.log(fruits); // this works too -> prints the entire array in the console
+// console.log(fruits[0]); // indexed access -> index 0
+// fruits[0] = tomato; // an element at a certain index can be changed like this
+let indexOfBanana = fruits.indexOf("banana"); // returns index of element if it exists, and -1 otherwise
+console.log(`Index of banana: ${indexOfBanana}`);
+// fruits.sort(); // sorts elements in alphabetical order 
+// fruits.sort().reverse(); // reverses the order 
+
+/* 2D Arrays -> a.k.a. Matrices */
+const matrix = [[1, 2, 3], 
+                [4, 5, 6], 
+                [7, 8, 9]];
+
+// matrix[0][0] = 'X';
+// matrix[0][1] = 'O';
+// matrix[0][2] = 'X';
+
+// matrix[1][0] = 'O';
+// matrix[1][1] = 'X';
+// matrix[1][2] = 'O';
+
+// matrix[2][0] = 'X';
+// matrix[2][1] = 'O';
+// matrix[2][2] = 'X';
+
+for(let row of matrix) {
+    const rowString = row.join(' ');
+    console.log(rowString);
+}
 
 /* Objects */
 let person = {
