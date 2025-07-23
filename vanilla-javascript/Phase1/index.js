@@ -340,7 +340,7 @@ console.log(z, typeof z);
 function setExtraOutput(msg) {
     document.getElementById("extraOutput").innerText = msg;
 }
-// switch-case 
+/* switch-case */ 
 function switchDemo() {
     let day = new Date().getDay();
     let dayName;
@@ -398,7 +398,8 @@ function logicalDemo() {
     let notA = !a;
     setExtraOutput(`Logical Operators:\nAND: ${and}\nOR: ${or}\nNOT A: ${notA}`);
 }
-/* comparison */
+
+/* Comparison */
 function comparisonDemo() {
     let x = 5, y = "5";
     let eq = x == y;
@@ -409,7 +410,8 @@ function comparisonDemo() {
     let lt = x < 10;
     setExtraOutput(`Comparison Operators:\nx == y: ${eq}\nx === y: ${strictEq}\nx != y: ${neq}\nx !== y: ${strictNeq}\nx > 3: ${gt}\nx < 10: ${lt}`);
 }
-/* string methods */
+
+/* String Methods */
 let userName = "SaptoCodes";
 let phoneNumber = "123-456-7890";
 // console.log(userName.length); // In JavaScript, .length & .length() are used alike (unlike in Java).
@@ -437,7 +439,7 @@ function stringMethodsDemo() {
     setExtraOutput(`String Methods:\nOriginal: ${str}\nUpper: ${upper}\nLower: ${lower}\nIncludes 'Demo': ${includes}\nSlice(0,10): ${sliced}`);
 }
 
-/* string slicing: creating a substring from a portion of another string
+/* String Slicing: creating a substring from a portion of another string
    string.slice(start, end) */
 // example 1
 const fullName = "Saptaparno Chakraborty";
@@ -459,7 +461,7 @@ let extension = email.slice(email.indexOf("@") + 1);
 console.log(username);
 console.log(extension);
 
-/* array methods */
+/* Array Methods */
 function arrayMethodsDemo() {
     let arr = [1, 2, 3, 4, 5];
     let found = arr.find(n => n > 3);
@@ -470,7 +472,7 @@ function arrayMethodsDemo() {
     setExtraOutput(`Array Methods:\nOriginal: ${arr.join(", ")}\nFind >3: ${found}\nFindIndex 3: ${idx}\nSome even: ${some}\nEvery >0: ${every}\nSorted desc: ${sorted.join(", ")}`);
 }
 
-/* date */
+/* Date */
 function dateDemo() {
     let now = new Date();
     let dateStr = now.toLocaleDateString();
@@ -478,7 +480,7 @@ function dateDemo() {
     setExtraOutput(`Date/Time:\nDate: ${dateStr}\nTime: ${timeStr}`);
 }
 
-/* timer */
+/* Timer */
 function timerDemo() {
     setExtraOutput("Timer started! Message will appear in 2 seconds...");
     setTimeout(() => {
@@ -486,14 +488,14 @@ function timerDemo() {
     }, 2000);
 }
 
-/* form validation */
+/* Form Validation */
 function formValidationDemo() {
     let val = prompt("Enter your email:");
     let valid = val && val.includes("@") && val.includes(".");
     setExtraOutput(valid ? `Valid email: ${val}` : "Invalid email!");
 }
 
-/* module */
+/* Module */
 function moduleDemo() {
     setExtraOutput("Modules let you split code into files and use import/export. See Phase2 for real usage!");
 }
@@ -532,7 +534,7 @@ function jsonDemo() {
     setExtraOutput(`JSON Stringify: ${str}\nJSON Parse: ${JSON.stringify(parsed)}`);
 }
 
-/* exception handling */
+/* Exception Handling */
 function tryCatchInputDemo() {
     try {
         let val = prompt("Enter a number:");
