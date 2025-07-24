@@ -263,6 +263,47 @@ console.log(foods);
 const originalObject = { a: 1, b: 2 };
 const copiedObject = { ...originalObject };
 
+/* Rest parameters (...args): They allow a function to accept an indefinite number of arguments as an array.
+                              They are denoted by three dots followed by the parameter name, and this
+                              parameter must be the last parameter in the function's parameter list. 
+    spread -> expands an array into separate elements
+    rest -> bundles separate elements into an array
+*/
+
+// example 1
+function openFridge(...foooods){console.log(...foooods);}
+function getFood(...foooods){return foooods;}
+const food1 = "biryani";
+const food2 = "chicken curry";
+const food3 = "palak paneer";
+const food4 = "roshomalai";
+const food5 = "phuchka";
+openFridge(food1, food2, food3, food4, food5);
+const foooods = getFood(food1, food2, food3, food4, food5);
+
+// example 2
+function sum(...numbers){
+    let result = 0;
+    for(let number of numbers){
+        result += number;
+    }
+    return result;
+}
+function getAverage(...numbers){
+    let result = 0;
+    for(let number of numbers){
+        result += number;
+    }
+    return result / numbers.length;
+}
+const average = getAverage(75, 100, 85, 90, 50);
+console.log(average);
+
+// example 3
+function combineStrings(...strings){return strings.join(" ");}
+const fullllName = combineStrings("Mr.", "Saptaparno", "Chakraborty");
+console.log(fullllName);
+
 /* DOM Manipulation */
 function showAlert() {
     alert("Button was clicked!"); // alert <-> window.alert (same thing)
@@ -336,7 +377,7 @@ console.log(x, typeof x);
 console.log(y, typeof y);
 console.log(z, typeof z);
 
-/* Additional JS Basics Demo Functions */
+/* More */
 function setExtraOutput(msg) {
     document.getElementById("extraOutput").innerText = msg;
 }
