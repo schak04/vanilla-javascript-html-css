@@ -1,0 +1,29 @@
+/*
+> Borders appear directly between the margin and padding of an element.
+*/
+
+html {
+    background-color: aquamarine;
+}
+
+p.dotted {
+    border-style: dotted;
+}
+p.dashed {
+    border-style: dashed;
+}
+p.solid {
+    border-style: solid;
+}
+p.inset {
+    border-style: inset;
+}
+p.outset {
+    border-style: outset;
+}
+p.groove {
+    border-style: groove;
+}
+p.ridge {
+    border-style: ridge;
+}

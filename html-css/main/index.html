@@ -1,0 +1,261 @@
+<!--
+- index.html -> it's like the instruction manual for every website we load
+- One Complete HTML Element = Tags + Content
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML & CSS learnings/reference</title>
+    <!-- adding/linking CSS: -->
+    <!-- <style>
+        /* internal CSS code goes in here */
+    </style> -->
+    <link rel="stylesheet" href="style.css"> <!-- external CSS linked -->
+    <!-- adding/linking JavaScript: script tag should ideally be inside body at the bottom -->
+</head>
+
+<body>
+    <nav>
+        <ul class="navbar">
+            <li><a href="#big-title">Introduction</a></li>
+            <li><a href="#table">Table</a></li>
+            <li><a href="#form">Form</a></li>
+            <li><a href="#more">More</a></li>
+        </ul>
+    </nav>
+    <main>
+        <!-- Global attributes: class, id -->
+        <!-- We can add multiple classes to an element putting spaces between two classes -->
+        <h1 class="title primary" id="big-title">Praise the Sun</h1> <!-- one element -->
+        <h2 class="title" style="color: blue;">Praise the Sun</h2>
+        <!-- another element -->
+        <!-- Example of inline CSS -->
+        <h3 style="color: brown;">Praise the Sun</h3> <!-- yet another element -->
+        <h4 style="color: green;">Praise the Sun</h4> <!-- another element again -->
+        <h5 style="color: tomato;">Praise the Sun</h5> <!-- so on -->
+        <h6>Praise the Sun</h6> <!-- and so forth -->
+        <p align="center">
+            I am <u>now writing a paragraph</u> cuz why not. <b>I need to fill this paragraph tag with text</b>.<br>
+            I <em>absolutely love</em> <strong>working out and lifting</strong>, and I'm <i>incredibly</i>
+            eager to grow <u><b>bigger</b></u> and <u><b>stronger</b></u> with time.
+        </p>
+
+        <div align="center">
+            <p>First paragraph inside the first div</p>
+            <p>Second paragraph inside the first div</p>
+            <p>Third paragraph inside the first div</p>
+        </div>
+
+        <!-- pre tags -->
+        <pre>
+                   Text inside a pre tag.
+                   .... ...... . ... ....
+              Lorem ipsum          
+              ...........          Lorem ipsum
+                                   ............
+        All    the    spaces
+               and    gaps    and    formatting
+        are
+            displayed
+                     exactly
+                             as they are
+                                         in
+         Some text                          the
+                                                code. 
+                       Some more text
+         
+                     ¯\_(ツ)_/¯     
+                   Low taper fade
+        Low taper fade        Low taper fade
+        </pre>
+
+        <!-- Some tags are self-closing. For ex: img, meta, input, etc. -->
+        <!-- img tags are used for adding images -->
+        <img src="sideeyechihuahua.jpg" alt="a funny-looking chihuahua" width="200">
+        <!-- br tags are used for adding a new line -->
+        <br><br>
+
+        <!-- anchor tags for links -->
+        <a href="https://google.com" target="_blank"> <!-- _blank -> new tab/window, _self -> same tab and window -->
+            Open Google
+        </a>
+        <br><br>
+
+        <!-- lists - ordered and unordered -->
+        <!-- ordered -->
+        <ol class="my-lists">
+            <p><b>My favourite exercises:</b></p>
+            <li>Bench Press & Shoulder Press & Lat Pulldowns & Seated Rows</li>
+            <li>Preacher Curls & Cable Curls & Hammer Curls & Forearm Flexions + Extensions</li>
+            <li>Tricep Pushdowns & Overhead Extensions</li>
+        </ol>
+        <!-- unordered -->
+        <ul class="my-lists">
+            <p><b>Things I love:</b></p>
+            <li>Coding, development & building things in general</li>
+            <li>Learning</li>
+            <li>Working out to get bigger and stronger</li>
+            <li>Playing video games</li>
+        </ul>
+
+        <!-- buttons -->
+        <button>Click Me</button>
+
+        <!-- Table -->
+        <h2 align="center" id="table"><u>Table</u></h2>
+        <table border="24" width="20%" cellpadding="20" align="center">
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Origin</th>
+            </tr>
+            <tr>
+                <td>Sapto</td>
+                <td>21</td>
+                <td>West Bengal</td>
+            </tr>
+            <tr>
+                <td>Solaire</td>
+                <td>30</td>
+                <td>Astora</td>
+            </tr>
+            <tr>
+                <td>Geralt</td>
+                <td>50</td>
+                <td>Rivia</td>
+            </tr>
+        </table>
+        <br><br>
+
+        <!-- forms: users can use forms to login, create posts, make payments, etc. -->
+        <form action="/submit" method="POST" id="form" align="center">
+            <h2 align="center"><u>Form</u></h2>
+            <p><strong>Name: </strong><input type="text" name="name" placeholder="Enter your name here" required></p>
+            <p><strong>Email ID: </strong><input type="email" name="email" placeholder="Enter your email here" required>
+            </p>
+            <p><strong>Password: </strong><input type="password" name="password" placeholder="Enter your password here"
+                    required></p>
+            <!-- radio buttons -->
+            <!--
+             id -> links with <label>, JavaScript access -> must be unique -> not req for grouping
+             name -> groups radios to allow only one selection -> need not be unique -> req for grouping
+            -->
+            <p><strong>Gender:</strong>
+                <input type="radio" name="gender" id="male" checked>
+                <label for="male">Male</label>
+                <input type="radio" name="gender" id="female">
+                <label for="female">Female</label>
+                <input type="radio" name="gender" id="nb">
+                <label for="nb">Non-binary</label>
+            </p>
+            <!-- checkboxes -->
+            <!-- 
+             id -> unique identifier, label linking, JS access -> must be unique -> optional but helpful
+             name -> groups submitted data under same field name -> need not be unique -> use same name for related checkboxes
+             
+             Use the 'value' attr in checkboxes when collecting or processing form data.
+             Without value, submitted data will default to "on".
+            -->
+            <p><strong>Hobbies:</strong></p>
+            <input type="checkbox" name="hobby" id="breathing" value="breathing" checked disabled>
+            <label for="breathing">Breathing</label><br>
+            <input type="checkbox" name="hobby" id="sleeping" value="sleeping" checked>
+            <label for="sleeping">Sleeping</label><br>
+            <input type="checkbox" name="hobby" id="reading" value="reading">
+            <label for="reading">Reading</label><br>
+            <input type="checkbox" name="hobby" id="lifting" value="lifting">
+            <label for="lifting">Lifting</label><br>
+            <input type="checkbox" name="hobby" id="gaming" value="gaming">
+            <label for="gaming">Gaming</label><br>
+            <input type="checkbox" name="hobby" id="coding" value="coding">
+            <label for="coding">Coding</label><br>
+            <input type="checkbox" name="hobby" id="singing" value="singing">
+            <label for="singing">Singing</label><br>
+            <input type="checkbox" name="hobby" id="cooking" value="cooking">
+            <label for="cooking">Cooking</label><br>
+            <input type="checkbox" name="hobby" id="gardening" value="gardening">
+            <label for="gardening">Gardening</label><br>
+            <input type="checkbox" name="hobby" id="dancing" value="dancing">
+            <label for="dancing">Dancing</label><br><br>
+
+            <!-- submit button -->
+            <input type="submit"> <!-- OR <button type="submit">Submit</button> -->
+            <!-- reset button -->
+            <input type="reset"> <!-- OR <button type="reset">Reset</button> -->
+        </form>
+        <br><br>
+
+        <h2 id="more">Container Elements</h2>
+        <!-- Container Elements: 
+           ===================================================================================
+           | Element          |                             Purpose                          |
+           |=================================================================================|
+           | <div>            |      Generic block-level container for grouping content      |
+           | <section>        |      Logical sections of a document (like chapters)          |
+           | <article>        |      Self-contained content like blog posts, news articles   |
+           | <main>           |      Main content of the page (only one per page)            |
+           | <header>         |      Introductory content or navigational links              |
+           | <footer>         |      Footer content for a page or section                    |
+           | <nav>            |      Navigation links                                        |
+           | <aside>          |      Sidebar or tangential content                           |
+           | <form>           |      Container for input fields and buttons                  |
+           | <fieldset>       |      Groups form inputs together                             |
+           | <ul> / <ol>      |      Containers for list items (<li>)                        |
+           =================================================================================== 
+        -->
+
+        <!-- spans are for inline text -->
+        <!-- divs are for sections -->
+        <div>
+            <p style="color: aquamarine;">
+            Put them <span>inside</span> some text.
+            </p>
+            <p style="color: yellow;">Or around any content</p>
+        </div>
+
+        <a href="https://dev.to/kenbellows/stop-using-so-many-divs-an-intro-to-semantic-html-3i9i" target="_self">
+            <h3>Semantic HTML</h3>
+        </a>
+        <pre>
+  div is a generic container. 
+  Instead of using div - semantic HTML
+  encourages the use of descriptive containers.
+  For example:
+  -> header,
+  -> nav,
+  -> article,
+  -> figure,
+  -> footer, etc.
+  These containers do not act differently,
+  but they're supposed to work better for SEO.
+  </pre><br>
+
+        <!--
+        =========================================================================
+        |    Semantic Tag        |                  Use Case                    |
+        |=======================================================================|
+        |    <header>            |   Top of a page or section                   |
+        |    <nav>               |   Navigation links                           |
+        |    <main>              |   Main content of the document               |
+        |    <section>           |   A thematic grouping                        |
+        |    <article>           |   Self-contained content block               |
+        |    <aside>             |   Sidebar, related info                      |
+        |    <footer>            |   Bottom content of a page                   |
+        |    <figure>            |   Media content like images with captions    |
+        =========================================================================
+        -->
+
+        <h2>CSS Box Model</h2>
+        <img src="box-model.png" alt="css box model image" width="400px">
+    </main>
+    
+    <!-- perfect place to add the script tag -->
+    <script src="index.js"> /* external JS linked */
+        /* internal JS code goes in here */
+    </script>
+</body>
+</html>

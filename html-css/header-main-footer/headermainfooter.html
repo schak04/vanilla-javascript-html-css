@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layout</title>
+    <style>
+        .container {
+            display: grid;
+            grid-template-rows: 50px 1fr 50px;
+            height: 100vh;
+            gap: 10px;
+        }
+        .header {
+            display: flex;
+            background-color: rgb(255, 145, 10);
+            color: black;
+            justify-content: center;
+            align-items: center;
+        }
+        .main {
+            display: flex;
+            background-color: rgb(255, 255, 255);
+            color: navy;
+            justify-content: center;
+            align-items: center;
+        }
+        .footer {
+            display: flex;
+            background-color: rgb(41, 255, 41);
+            color: black;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">Header</div>
+        <div class="main">Main</div>
+        <div class="footer">Footer</div>
+        <img height="30%" src="StandingWithSolaire.png">
+    </div>
+</body>
+</html>

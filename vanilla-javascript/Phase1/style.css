@@ -1,0 +1,44 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    padding: 0;
+    background-color: #f0f0f5;
+    color: #333;
+}
+
+h1 {
+    color: #0077cc;
+}
+
+.container {
+    margin-top: 20px;
+}
+
+button, #mySubmit {
+    padding: 10px 15px;
+    margin: 5px;
+    background-color: #0077cc;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover, #mySubmit:hover {
+    background-color: #005fa3;
+}
+
+input {
+    padding: 10px;
+    margin: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.output {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #e6f7ff;
+    border: 1px solid #b3e0ff;
+    border-radius: 5px;
+}

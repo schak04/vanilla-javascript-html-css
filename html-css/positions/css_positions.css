@@ -1,0 +1,33 @@
+.element {
+    background-color: black;
+    color: aliceblue;
+    width: 250px;
+    text-align: center;
+    padding: 20px;
+    /* position: relative;
+    top: 30px;
+    left: 30px; */
+    /* position: fixed;
+    top: 50%; 
+    left: 50%; 
+    translate: -50% -50%; */
+    /* position: sticky;
+    top: 10px; */
+}
+
+.parent {
+    padding: 20px;
+    width: 300px;
+    background-color: black;
+    color: white;
+    position: relative;
+}
+
+.child {
+    padding: 2px;
+    background-color: navy;
+    color: white;
+    position: absolute;
+    top: 0;
+    right: 0;
+}

@@ -1,0 +1,23 @@
+/* body {
+    align-items: center;
+    justify-content: center;
+} */
+
+.grid-container {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    grid-template-columns: 100px 100px 100px;
+    grid-template-rows: 100px 100px;
+    gap: 10px;
+    background-color: aqua;
+}
+.grid-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: bisque;
+    color: black;
+    padding: 40%;
+    /* grid-area: auto; */
+}
