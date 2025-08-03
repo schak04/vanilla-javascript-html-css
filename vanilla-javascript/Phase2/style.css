@@ -37,15 +37,3 @@ button:hover {
     white-space: pre-wrap;
     font-family: 'Consolas', 'Menlo', monospace;
 }
-
-#extraOutput {
-    margin-top: 20px;
-    background-color: #fffbe6;
-    padding: 15px;
-    border: 1px solid #ffe58f;
-    border-radius: 8px;
-    min-height: 80px;
-    white-space: pre-wrap;
-    color: #7c5c00;
-    font-family: 'Consolas', 'Menlo', monospace;
-}

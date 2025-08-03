@@ -4,11 +4,7 @@ function print(msg) {
     out.innerText = typeof msg === "object" ? JSON.stringify(msg, null, 2) : msg;
 }
 
-/* Extra output for more advanced demos */
-function print2(msg) {
-    const out = document.getElementById("extraOutput");
-    out.innerText = typeof msg === "object" ? JSON.stringify(msg, null, 2) : msg;
-}
+
 
 /* Async/Await + Promises */
 async function runAsyncTask() {
@@ -129,7 +125,7 @@ function spreadRestDemo() {
 
 /* Custom Events */
 function customEventDemo() {
-    document.addEventListener("myCustomEvent", e => print2(`Custom event triggered! Detail: ${e.detail}`));
+    document.addEventListener("myCustomEvent", e => print(`Custom event triggered! Detail: ${e.detail}`));
     const event = new CustomEvent("myCustomEvent", { detail: "Hello from custom event!" });
     document.dispatchEvent(event);
 }
@@ -137,19 +133,19 @@ function customEventDemo() {
 /* Callbacks */
 function callbackDemo() {
     function doSomething(cb) { cb("Callback called!"); }
-    doSomething(msg => print2(msg));
+    doSomething(msg => print(msg));
 }
 
 /* Regex */
 function regexDemo() {
     const str = "abc123xyz";
     const match = str.match(/\d+/);
-    print2(`Regex match for digits in '${str}': ${match}`);
+    print(`Regex match for digits in '${str}': ${match}`);
 }
 
 /* Module */
 function moduleDemo() {
-    print2("Modules let you split code into files and use import/export. See this file for examples!");
+    print("Modules let you split code into files and use import/export. See this file for examples!");
 }
 
 /* this */
@@ -159,7 +155,7 @@ function thisDemo() {
         regular: function() { return this.name; },
         arrow: () => this.name
     };
-    print2(`'this' in regular: ${obj.regular()}\n'this' in arrow: ${obj.arrow}`);
+    print(`'this' in regular: ${obj.regular()}\n'this' in arrow: ${obj.arrow}`);
 }
 
 /* Arrow nuance */
@@ -168,12 +164,12 @@ function arrowNuanceDemo() {
     Normal.prototype.getVal = function() { return this.val; };
     const n = new Normal();
     const arrow = () => this;
-    print2(`Normal function 'this': ${n.getVal()}\nArrow function 'this': ${arrow()}`);
+    print(`Normal function 'this': ${n.getVal()}\nArrow function 'this': ${arrow()}`);
 }
 
 /* Debugging */
 function debugDemo() {
-    print2("Use console.log(), breakpoints, and browser dev tools for debugging!");
+    print("Use console.log(), breakpoints, and browser dev tools for debugging!");
 }
 
 /* JSON */
@@ -181,7 +177,7 @@ function jsonDemo() {
     const obj = { a: 1, b: 2 };
     const str = JSON.stringify(obj);
     const parsed = JSON.parse(str);
-    print2(`JSON Stringify: ${str}\nJSON Parse: ${JSON.stringify(parsed)}`);
+    print(`JSON Stringify: ${str}\nJSON Parse: ${JSON.stringify(parsed)}`);
 }
 
 /* Map Set */
@@ -190,7 +186,7 @@ function mapSetDemo() {
     map.set("a", 1);
     map.set("b", 2);
     const set = new Set([1, 2, 2, 3]);
-    print2(`Map: ${JSON.stringify(Array.from(map.entries()))}\nSet: ${JSON.stringify(Array.from(set))}`);
+    print(`Map: ${JSON.stringify(Array.from(map.entries()))}\nSet: ${JSON.stringify(Array.from(set))}`);
 }
 
 /* Functional Programming */
@@ -199,30 +195,30 @@ function fpDemo() {
     const doubled = arr.map(x => x * 2);
     const filtered = arr.filter(x => x % 2 === 0);
     const sum = arr.reduce((a, b) => a + b, 0);
-    print2(`Functional Programming:\nDoubled: ${doubled}\nFiltered (even): ${filtered}\nSum: ${sum}`);
+    print(`Functional Programming:\nDoubled: ${doubled}\nFiltered (even): ${filtered}\nSum: ${sum}`);
 }
 
 /* Error handling in async/await */
 async function errorHandlingAsyncDemo() {
-    print2("Error handling in async/await:");
+    print("Error handling in async/await:");
     try {
         await fakeFetch(false);
     } catch (e) {
-        print2(`Caught error: ${e}`);
+        print(`Caught error: ${e}`);
     }
 }
 
 /* Dynamic Import */
 async function dynamicImportDemo() {
-    print2("Dynamic import example (simulated):");
+    print("Dynamic import example (simulated):");
     // in real code: const module = await import('./someModule.js');
-    print2("Use import('./module.js') for dynamic loading in ES modules.");
+    print("Use import('./module.js') for dynamic loading in ES modules.");
 }
 
 /* Object keys */
 function objectKeysDemo() {
     const obj = { a: 1, b: 2, c: 3 };
-    print2(`Object.keys: ${Object.keys(obj)}\nObject.values: ${Object.values(obj)}\nObject.entries: ${JSON.stringify(Object.entries(obj))}`);
+    print(`Object.keys: ${Object.keys(obj)}\nObject.values: ${Object.values(obj)}\nObject.entries: ${JSON.stringify(Object.entries(obj))}`);
 }
 
 /* addEventListener */
@@ -230,19 +226,19 @@ function addEventListenerDemo() {
     const btn = document.createElement('button');
     btn.textContent = 'Click Me (addEventListener)';
     btn.onclick = () => btn.remove();
-    btn.addEventListener('click', () => print2('Button clicked using addEventListener!'));
+    btn.addEventListener('click', () => print('Button clicked using addEventListener!'));
     document.body.appendChild(btn);
 }
 
 /* Form Submission */
 function formSubmissionDemo() {
-    print2("Form submission: Prevent default and validate input.");
+    print("Form submission: Prevent default and validate input.");
     const form = document.createElement('form');
     form.innerHTML = `<input type='text' id='demoInput' placeholder='Type something'><button>Submit</button>`;
     form.onsubmit = function(e) {
         e.preventDefault();
         const val = form.querySelector('#demoInput').value;
-        print2(val ? `Submitted: ${val}` : 'Please enter something!');
+        print(val ? `Submitted: ${val}` : 'Please enter something!');
         form.remove();
     };
     document.body.appendChild(form);
