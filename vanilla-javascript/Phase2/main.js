@@ -184,6 +184,13 @@ function callbackDemo() {
 // 1
 
 // greet(sup);
+// function greet(callback1) {
+//     console.log("Oi bruv");
+//     callback1();
+// }
+// function sup(){
+//     console.log("Sup");
+// }
 /* greet(sup(bidbye)); -> this is wrong and throws an error.
     The "Uncaught TypeError: callback is not a function" error in JavaScript indicates that a value expected
     to be a function, and subsequently called as such, is not actually a function.
