@@ -1,10 +1,43 @@
+/*
+Security & Performance:
+  Security: Always validate and sanitize user input. Never trust data from users.
+  Performance: Use async operations for network and heavy tasks. Avoid blocking the main thread.
+Code Organization:
+  For larger projects, organize code into modules and folders. Use import/export for maintainability.
+*/
+
+/*
+JavaScript, though fundamentally single-threaded, achieves an asynchronous nature through various mechanisms,
+enabling non-blocking operations and improved responsiveness in web applications.
+This means that while JavaScript executes code in a single sequence, it can initiate time-consuming tasks
+(like network requests or file I/O) in the background and continue processing other code without waiting
+for these tasks to complete.
+Key aspects and mechanisms contributing to JavaScript's asynchronous nature include:
+- Callbacks:
+    Functions passed as arguments to other functions, executed after a specific operation finishes.
+    While effective, excessive nesting of callbacks can lead to "callback hell," impacting readability and maintainability.
+- Promises:
+    Objects representing the eventual completion or failure of an asynchronous operation and its resulting value.
+    Promises offer a more structured and manageable way to handle asynchronous code compared to nested callbacks,
+    with methods like .then() for success and .catch() for error handling.
+- Async/Await:
+    Syntactic sugar built on top of Promises, providing a more synchronous-looking way to write asynchronous code.
+    The async keyword designates a function as asynchronous, allowing the use of await to pause execution until a
+    Promise resolves, making asynchronous flows more readable and easier to reason about.
+- Event Loop:
+    A fundamental concept in JavaScript's concurrency model. The Event Loop continuously checks if the Call Stack
+    (where synchronous code executes) is empty. If it is, the Event Loop moves tasks from the Message Queue
+    (where asynchronous callbacks are placed after their operations complete) to the Call Stack for execution.
+- Web APIs:
+    Browser-provided APIs (like setTimeout, fetch, XMLHttpRequest) that handle asynchronous operations outside
+    the main JavaScript thread. When these operations complete, their associated callbacks are placed in the Message Queue.
+*/
+
 /* DOM helper to print output */
 function print(msg) {
     const out = document.getElementById("output");
     out.innerText = typeof msg === "object" ? JSON.stringify(msg, null, 2) : msg;
 }
-
-
 
 /* Async/Await + Promises */
 async function runAsyncTask() {
@@ -130,10 +163,45 @@ function customEventDemo() {
     document.dispatchEvent(event);
 }
 
-/* Callbacks */
+/* Callbacks: A callback in JavaScript is a function passed as an argument to another function.
+Common Use Cases:
+- Asynchronous Operations:
+    Callbacks are crucial for tasks like fetching data from a server (e.g., using fetch or XMLHttpRequest),
+    reading files, or interacting with databases, where the operation might take time and should not block the main thread.
+- Event Handling:
+    In user interfaces, callbacks are used to define what should happen when a specific event occurs
+    (e.g., a button click, a key press, or a form submission).
+- Timers:
+    Functions like setTimeout() and setInterval() use callbacks to execute code after a specified delay or at regular intervals.
+*/
 function callbackDemo() {
     function doSomething(cb) { cb("Callback called!"); }
     doSomething(msg => print(msg));
+}
+
+/* more examples */
+
+// greet(sup);
+/* greet(sup(bidbye)); -> this is wrong and throws an error.
+    The "Uncaught TypeError: callback is not a function" error in JavaScript indicates that a value expected
+    to be a function, and subsequently called as such, is not actually a function.
+    This error frequently arises in scenarios involving asynchronous operations, event handling,
+    or higher-order functions that accept a callback as an argument. */
+greet(() => sup(bidbye));
+// function greet(callback){
+//     console.log("Hey");
+//     callback();
+// }
+function greet(callback1) {
+    console.log("Oi bruv");
+    callback1();
+}
+function bidbye(){
+    console.log("Bye");
+}
+function sup(callback2){
+    console.log("Sup");
+    callback2();
 }
 
 /* Regex */
@@ -152,7 +220,7 @@ function moduleDemo() {
 function thisDemo() {
     const obj = {
         name: "Alex",
-        regular: function() { return this.name; },
+        regular: function () { return this.name; },
         arrow: () => this.name
     };
     print(`'this' in regular: ${obj.regular()}\n'this' in arrow: ${obj.arrow}`);
@@ -161,7 +229,7 @@ function thisDemo() {
 /* Arrow nuance */
 function arrowNuanceDemo() {
     function Normal() { this.val = 1; }
-    Normal.prototype.getVal = function() { return this.val; };
+    Normal.prototype.getVal = function () { return this.val; };
     const n = new Normal();
     const arrow = () => this;
     print(`Normal function 'this': ${n.getVal()}\nArrow function 'this': ${arrow()}`);
@@ -235,7 +303,7 @@ function formSubmissionDemo() {
     print("Form submission: Prevent default and validate input.");
     const form = document.createElement('form');
     form.innerHTML = `<input type='text' id='demoInput' placeholder='Type something'><button>Submit</button>`;
-    form.onsubmit = function(e) {
+    form.onsubmit = function (e) {
         e.preventDefault();
         const val = form.querySelector('#demoInput').value;
         print(val ? `Submitted: ${val}` : 'Please enter something!');
@@ -243,11 +311,3 @@ function formSubmissionDemo() {
     };
     document.body.appendChild(form);
 }
-
-/*
-Security & Performance:
-  Security: Always validate and sanitize user input. Never trust data from users.
-  Performance: Use async operations for network and heavy tasks. Avoid blocking the main thread.
-Code Organization:
-  For larger projects, organize code into modules and folders. Use import/export for maintainability.
-*/
