@@ -211,15 +211,17 @@ function sup(callback2){
 
 // 2
 
-multiply(consolePrint, 4, 5);
+multiply(pagePrint, 4, 5);
 
 function multiply(callback, a, b) {
     let prod = a*b;
     callback(prod);
 }
-
-function consolePrint(prod) { // lesson: NEVER name a custom function 'console' -> it makes console.log() doesn't work
-    console.log(prod);
+// function consolePrint(prod) { // lesson: NEVER name a custom function 'console' -> it makes console.log() doesn't work
+//     console.log(prod);
+// }
+function pagePrint(prod) {
+    document.getElementById("output").textContent = prod; 
 }
 
 /* Regex */
