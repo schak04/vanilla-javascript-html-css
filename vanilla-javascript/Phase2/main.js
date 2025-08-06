@@ -224,6 +224,16 @@ function pagePrint(prod) {
     document.getElementById("output").textContent = prod; 
 }
 
+/* forEach: The forEach() method in JavaScript is a built-in function primarily used to iterate over
+            elements in arrays, but it can also be applied to Maps and Sets. It executes a provided callback function
+            once for each element in the collection. */
+
+const games = ["Terraria", "Titanfall 2", "Dark Souls", "Blasphemous", "Minecraft", "Hollow Knight"];
+games.forEach(display);
+function display(game) {
+    console.log(game);
+}
+
 /* Regex */
 function regexDemo() {
     const str = "abc123xyz";
