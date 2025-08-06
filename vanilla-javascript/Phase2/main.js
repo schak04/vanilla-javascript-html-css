@@ -211,14 +211,14 @@ function sup(callback2){
 
 // 2
 
-multiply(console, 4, 5);
+multiply(consolePrint, 4, 5);
 
 function multiply(callback, a, b) {
     let prod = a*b;
     callback(prod);
 }
 
-function console(prod) {
+function consolePrint(prod) { // lesson: NEVER name a custom function 'console' -> it makes console.log() doesn't work
     console.log(prod);
 }
 
