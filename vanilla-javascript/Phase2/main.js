@@ -228,10 +228,32 @@ function pagePrint(prod) {
             elements in arrays, but it can also be applied to Maps and Sets. It executes a provided callback function
             once for each element in the collection. */
 
+// 1
 const games = ["Terraria", "Titanfall 2", "Dark Souls", "Blasphemous", "Minecraft", "Hollow Knight"];
 games.forEach(display);
-function display(game) {
-    console.log(game);
+function display(i) {
+    console.log(i);
+}
+
+// 2
+/*
+In-place mutation with forEach():
+    forEach(callback) passes (element, index, array) -> position matters, names don't.
+    This lets us modify the original array during iteration.
+    Example: array[index] = some transformation of element;
+CAUTION: This mutates the original array directly.
+*/
+const nums = [1, 8, 9, 7, 6, 5, 4, 0, 3, 2];
+nums.forEach(double);
+nums.forEach(display);
+
+// function double(num) { // does not modify the original array
+//     num = num*2;
+//     console.log(num);
+// }
+
+function double(el, idx, arr){ // modifies the original array nums in place
+    arr[idx] = el * 2;
 }
 
 /* Regex */
