@@ -136,8 +136,140 @@ function isValidEmail(email){
 console.log(happyBirthday("Sapto", 25));
 console.log(isValidEmail("s123@gmail.com"));
 
-// arrow function (ES6+)
-const square = (x) => x * x;
+/* Arrow Functions (ES6+): A concise way to write function expressions
+   Syntax: (parameters) => { statements } or (parameters) => expression
+   
+   Key Differences from Regular Functions:
+   1. Shorter syntax
+   2. No binding of 'this' (lexical scoping)
+   3. No 'arguments' object
+   4. Cannot be used as constructors (no 'new' keyword)
+   5. No 'prototype' property
+*/
+
+// Basic Arrow Function Examples
+const add = (a, b) => a + b;
+const multiply = (x, y) => x * y;
+const greet = name => `Hello, ${name}!`; // Single parameter can omit parentheses
+const getRandom = () => Math.random(); // No parameters need empty parentheses
+
+// Arrow Functions with Multiple Statements
+const processUser = (name, age) => {
+    const isAdult = age >= 18;
+    const status = isAdult ? 'adult' : 'minor';
+    return `${name} is an ${status}`;
+};
+
+// Arrow Functions in Array Methods
+const numbersArray = [1, 2, 3, 4, 5];
+const doubled = numbersArray.map(num => num * 2);
+const evens = numbersArray.filter(num => num % 2 === 0);
+const sum = numbersArray.reduce((acc, num) => acc + num, 0);
+
+// Arrow Functions with Object Destructuring
+const getUserInfo = ({ name, age, city }) => `${name} is ${age} years old from ${city}`;
+
+// Arrow Functions as Callbacks
+setTimeout(() => console.log('Delayed execution'), 1000);
+const button = document.getElementById('myButton');
+button.addEventListener('click', () => alert('Button clicked!'));
+
+// Arrow Functions vs Regular Functions - 'this' binding
+const personObj = {
+    name: 'John',
+    regularMethod: function() {
+        setTimeout(function() {
+            console.log('Regular function:', this.name); // 'this' is undefined
+        }, 100);
+    },
+    arrowMethod: function() {
+        setTimeout(() => {
+            console.log('Arrow function:', this.name); // 'this' refers to person
+        }, 100);
+    }
+};
+
+// Nested Arrow Functions (Higher-Order Functions)
+const createMultiplier = (factor) => (number) => number * factor;
+const double = createMultiplier(2);
+const triple = createMultiplier(3);
+
+// Arrow Functions with Default Parameters
+const createGreeting = (name = 'Guest', greeting = 'Hello') => `${greeting}, ${name}!`;
+
+// Arrow Functions with Rest Parameters
+const sumAll = (...numbers) => numbers.reduce((acc, num) => acc + num, 0);
+
+// Arrow Functions with Conditional Logic
+const getStatus = (age) => age >= 18 ? 'adult' : 'minor';
+
+// Arrow Functions in Object Methods (not recommended for methods)
+const calculator = {
+    add: (a, b) => a + b,
+    subtract: (a, b) => a - b,
+    // Note: Arrow functions don't bind 'this' properly in object methods
+};
+
+// Arrow Functions with Template Literals
+const createEmail = (name, domain) => `${name.toLowerCase()}@${domain}`;
+
+// Arrow Functions for Event Handling
+const handleFormSubmit = (event) => {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    console.log('Form submitted:', Object.fromEntries(formData));
+};
+
+// Arrow Functions with Error Handling
+const safeDivide = (a, b) => {
+    if (b === 0) {
+        throw new Error('Division by zero!');
+    }
+    return a / b;
+};
+
+// Arrow Functions for Data Transformation
+const users = [
+    { name: 'Alice', age: 25 },
+    { name: 'Bob', age: 30 },
+    { name: 'Charlie', age: 35 }
+];
+
+const getAdultNames = (userList) => 
+    userList
+        .filter(user => user.age >= 18)
+        .map(user => user.name);
+
+// Arrow Functions with Async Operations
+const fetchUserData = async (userId) => {
+    try {
+        const response = await fetch(`/api/users/${userId}`);
+        return await response.json();
+    } catch (error) {
+        console.error('Error fetching user:', error);
+        return null;
+    }
+};
+
+// Arrow Functions for Sorting
+const sortByAge = (a, b) => a.age - b.age;
+const sortByName = (a, b) => a.name.localeCompare(b.name);
+
+// Arrow Functions with Currying
+const curry = (fn) => {
+    return function curried(...args) {
+        if (args.length >= fn.length) {
+            return fn.apply(this, args);
+        }
+        return (...moreArgs) => curried.apply(this, args.concat(moreArgs));
+    };
+};
+
+const curriedAdd = curry((a, b, c) => a + b + c);
+const addFive = curriedAdd(5);
+const addFiveAndThree = addFive(3);
+
+console.log('Arrow function examples loaded!');
 
 /* Conditionals */
 if (age >= 18) {
