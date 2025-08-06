@@ -181,6 +181,8 @@ function callbackDemo() {
 
 /* more examples */
 
+// 1
+
 // greet(sup);
 /* greet(sup(bidbye)); -> this is wrong and throws an error.
     The "Uncaught TypeError: callback is not a function" error in JavaScript indicates that a value expected
@@ -188,10 +190,6 @@ function callbackDemo() {
     This error frequently arises in scenarios involving asynchronous operations, event handling,
     or higher-order functions that accept a callback as an argument. */
 greet(() => sup(bidbye));
-// function greet(callback){
-//     console.log("Hey");
-//     callback();
-// }
 function greet(callback1) {
     console.log("Oi bruv");
     callback1();
@@ -202,6 +200,19 @@ function bidbye(){
 function sup(callback2){
     console.log("Sup");
     callback2();
+}
+
+// 2
+
+multiply(console, 4, 5);
+
+function multiply(callback, a, b) {
+    let prod = a*b;
+    callback(prod);
+}
+
+function console(prod) {
+    console.log(prod);
 }
 
 /* Regex */
