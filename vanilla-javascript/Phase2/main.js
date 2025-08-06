@@ -245,7 +245,7 @@ CAUTION: This mutates the original array directly.
 */
 const nums = [1, 8, 9, 7, 6, 5, 4, 0, 3, 2];
 nums.forEach(double);
-nums.forEach(display);
+nums.forEach(display); // using display function defined in the first example
 
 // function double(num) { // does not modify the original array
 //     num = num*2;
