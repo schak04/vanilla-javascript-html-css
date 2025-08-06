@@ -252,7 +252,7 @@ nums.forEach(display); // using display function defined in the first example
 //     console.log(num);
 // }
 
-function double(el, idx, arr){ // modifies the original array nums in place
+function double(el, idx, arr) { // modifies the original array nums in place
     arr[idx] = el * 2;
 }
 
