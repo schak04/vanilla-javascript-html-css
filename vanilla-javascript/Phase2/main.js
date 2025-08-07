@@ -373,6 +373,8 @@ const helloWorld = function() {
     console.log("Hello World");
 }
 
+helloWorld();
+
 // 2
 
 /* The setTimeout() method in JavaScript allows for the delayed execution of a function or
@@ -384,7 +386,7 @@ const timeoutID = setTimeout(functionToExecute, delayInMilliseconds, param1, par
 
 setTimeout(function() {
     console.log("HEY")
-}, 5000);
+}, 2000);
 
 // 3
 
@@ -425,6 +427,61 @@ console.log(adults1);
     2. Higher-Order Functions
     3. Closures
     4. Event Listeners */
+
+/* Arrow Functions: (concise way to write function expressions)
+    Arrow functions, introduced in ES6 (ECMAScript 2015), provide a concise syntax for
+    writing function expressions in JavaScript.
+    They offer a shorter alternative to traditional function expressions and have
+    distinct behaviors regarding this binding. 
+    These are good for simple, one-time-use functions.
+    (parameters) => code */
+
+// 1
+
+/*
+const helloWorld = function() {
+    console.log("Hello World");
+}
+This code can be written using arrow functions like: */
+
+const helloWorld1 = () => {console.log("Hello World");}
+helloWorld1();
+
+// 2
+
+/*
+const ages1 = [15, 12, 14, 18, 19, 21, 20, 26, 29, 30, 45, 60];
+const adults1 = ages1.filter(function(age) {
+    return age>=18;
+});
+console.log(adults1);
+This code can be written using arrow functions like: */
+
+const ages2 = [15, 12, 14, 18, 19, 21, 20, 26, 29, 30, 45, 60];
+const adults2 = ages2.filter((age) => {
+    return age>=18;
+});
+console.log(adults2);
+
+// 3
+const helloNameAge = (name, age) => {console.log(`Hello ${name}`);
+                                    console.log(`You are ${age} years old.`);};
+helloNameAge("Sapto", 21);
+
+// 4
+/*
+setTimeout(function() {
+    console.log("HEY")
+}, 2000);
+This can be written like: */
+// setTimeout(()=>{console.log("HEY")}, 2000);
+
+// 5
+const numbers2 = [1, 2, 3, 4, 5, 6];
+const squares2 = numbers2.map((element) => Math.pow(element, 2));
+const evenNums = numbers2.filter((element) => element % 2 === 0);
+const total = numbers2.reduce((accumulator, element) => accumulator + element);
+console.log(total);
 
 /* Regex */
 function regexDemo() {
