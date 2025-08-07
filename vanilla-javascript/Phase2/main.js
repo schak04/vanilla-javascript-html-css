@@ -269,7 +269,6 @@ Using map() instead of forEach() (most readable):
             .map(word => word.charAt(0).toUpperCase() + word.slice(1))
             .join(" ");
     }
-
 Explanation for how `.map(word => ...)` works:
     In this context, `word` is just a variable name chosen by the programmer.
     It represents each element in the array returned by `split(" ")`.
