@@ -384,9 +384,9 @@ helloWorld();
 
 const timeoutID = setTimeout(functionToExecute, delayInMilliseconds, param1, param2, ...); */
 
-setTimeout(function() {
-    console.log("HEY")
-}, 2000);
+// setTimeout(function() {
+//     console.log("HEY")
+// }, 2000);
 
 // 3
 
@@ -482,6 +482,26 @@ const squares2 = numbers2.map((element) => Math.pow(element, 2));
 const evenNums = numbers2.filter((element) => element % 2 === 0);
 const total = numbers2.reduce((accumulator, element) => accumulator + element);
 console.log(total);
+
+/* Objects:
+    In JavaScript, an object is a non-primitive data type used to store collections
+    of related data and more complex entities. Unlike primitive data types
+    (like numbers, strings, booleans, null, undefined, and symbols) which hold a single value,
+    objects can store multiple values as key-value pairs.
+    object = {key:value, function()} */
+
+const person = {
+    firstName: "Saptaparno",
+    lastName: "Chakraborty",
+    age: 21,
+    // greet: function(){console.log(`Hello, I'm ${this.firstName} and I'm ${this.age} years old.`)},
+    // work: function(){console.log("I'm working.")}
+    greet() {console.log(`Hello, I'm ${this.firstName} and I'm ${this.age} years old.`);}, // if `this` is involved then arrow functions don't work
+    work: ()=>{console.log("I'm working.");} // if `this` isn't involved then arrow functions WORK
+}
+console.log(person.firstName);
+person.greet();
+person.work();
 
 /* Regex */
 function regexDemo() {
