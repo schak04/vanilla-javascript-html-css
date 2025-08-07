@@ -224,28 +224,47 @@ function pagePrint(prod) {
     document.getElementById("output").textContent = prod; 
 }
 
-/* forEach: The forEach() method in JavaScript is a built-in function primarily used to iterate over
-            elements in arrays, but it can also be applied to Maps and Sets. It executes a provided callback function
-            once for each element in the collection. */
-
-// 1
-const games = ["Terraria", "Titanfall 2", "Dark Souls", "Blasphemous", "Minecraft", "Hollow Knight"];
-games.forEach(display);
-function display(i) {
-    console.log(i);
-}
-
-// 2
 /*
+forEach: The forEach() method in JavaScript is a built-in function primarily used to iterate over
+         elements in arrays, but it can also be applied to Maps and Sets. It executes a provided callback function
+         once for each element in the collection.
 In-place mutation with forEach():
     forEach(callback) passes (element, index, array) -> position matters, names don't.
     This lets us modify the original array during iteration.
     Example: array[index] = some transformation of element;
 CAUTION: This mutates the original array directly.
 */
+
+function display(i) { // this will  be used in the upcoming examples
+    console.log(i);
+}
+
+// 1
+const games = ["Terraria", "Titanfall 2", "Dark Souls", "Blasphemous", "Minecraft", "Hollow Knight"];
+// games.forEach(uc);
+games.forEach(lc);
+games.forEach(capitalize);
+games.forEach(display); // using display function defined at the start of this section (forEach)
+
+function uc(element, index, array) {
+    array[index] = element.toUpperCase();
+}
+function lc(element, index, array) {
+    array[index] = element.toLowerCase();
+}
+function capitalize(element, index, array) { // capitalizes each word of element
+    let words = element.split(" ");
+    words.forEach(cp);
+    function cp(e, i, a) {
+        a[i] = e.charAt(0).toUpperCase() + e.slice(1);
+    }
+    array[index] = words.join(" ");
+}
+
+// 2
 const nums = [1, 8, 9, 7, 6, 5, 4, 0, 3, 2];
 nums.forEach(double);
-nums.forEach(display); // using display function defined in the first example
+nums.forEach(display); // using display function defined at the start of this section (forEach)
 
 // function double(num) { // does not modify the original array
 //     num = num*2;
