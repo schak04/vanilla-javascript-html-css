@@ -261,38 +261,25 @@ function capitalize(element, index, array) { // capitalizes each word of element
     array[index] = words.join(" ");
 }
 /*
-// Alternative capitalize implementations for reference:
-
-// Option 1: Using map() instead of forEach() (most readable)
-function capitalize(element, index, array) {
-    array[index] = element.split(" ")
-        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-        .join(" ");
-}
-
-// Option 2: Using replace() with regex (most concise)
-function capitalize(element, index, array) {
-    array[index] = element.replace(/\b\w/g, char => char.toUpperCase());
-}
-
-// Option 3: Single loop approach (most efficient for long strings)
-function capitalize(element, index, array) {
-    let result = "";
-    let capitalizeNext = true;
-    
-    for (let char of element) {
-        if (char === " ") {
-            capitalizeNext = true;
-            result += char;
-        } else if (capitalizeNext) {
-            result += char.toUpperCase();
-            capitalizeNext = false;
-        } else {
-            result += char.toLowerCase();
-        }
+Alternative capitalize implementations for reference
+====================================================
+Using map() instead of forEach() (most readable):
+    function capitalize(element, index, array) {
+        array[index] = element.split(" ")
+            .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+            .join(" ");
     }
-    array[index] = result;
-}
+
+Explanation for how `.map(word => ...)` works:
+    In this context, `word` is just a variable name chosen by the programmer.
+    It represents each element in the array returned by `split(" ")`.
+    The JavaScript engine doesn't "know" that `word` means a word, it's not special.
+    It could be named anything (`w`, `x`, `skibidi`) and the code would still work the same.
+    This code:
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    ...takes each string in the array,
+    capitalizes the first letter,
+    and appends the rest of the string after it.
 */
 
 // 2
