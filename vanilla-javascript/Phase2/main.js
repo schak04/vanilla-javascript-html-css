@@ -503,6 +503,25 @@ console.log(person.firstName);
 person.greet();
 person.work();
 
+/* `this` keyword:
+    In JavaScript, the `this` keyword refers to the object that is executing the
+    current code or the object that owns the function being called.
+    Its value is determined at runtime, depending on the context in which
+    the function is invoked. */
+
+const food1 = {
+    nayme: "fried pomfret",
+    price: "₹550",
+    details(){console.log(`This ${this.nayme} costs ${this.price}.`)}
+}
+const food2 = {
+    nayme: "mishti doi",
+    price: "₹400",
+    details(){console.log(`This ${this.nayme} costs ${this.price}.`)}
+}
+food1.details();
+food2.details();
+
 /* Regex */
 function regexDemo() {
     const str = "abc123xyz";
