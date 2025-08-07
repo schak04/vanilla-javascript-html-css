@@ -179,10 +179,7 @@ function callbackDemo() {
     doSomething(msg => print(msg));
 }
 
-/* more examples */
-
 // 1
-
 // greet(sup);
 // function greet(callback1) {
 //     console.log("Oi bruv");
@@ -316,6 +313,53 @@ function dateFormatter(date) {
 const ddmmyyyy = yyyymmdd.map(dateFormatter);
 console.log(yyyymmdd);
 console.log(ddmmyyyy);
+
+/* filter() method:
+    It creates a new array containing only the elements from the
+    original array that satisfy a specified condition.
+    It does not modify the original array. */
+
+const ages = [15, 12, 14, 18, 19, 21, 20, 26, 29, 30, 45, 60];
+function isAdult(age) {
+    return age>=18;
+}
+const adults = ages.filter(isAdult);
+console.log(adults);
+
+/* reduce() method: (it basically reduces the elements of an array to a single value)
+    It is a higher-order array method that executes a provided "reducer"
+    callback function on each element of the array, resulting in a single output value.
+    It is used to accumulate or reduce the elements of an array to a single value.
+Parameters:
+- callback (required):
+- A function that is executed on each element of the array. It takes the following arguments:
+    - accumulator: The accumulated value returned from the previous iteration of the callback.
+      In the first iteration, if initialValue is provided, it will be the initialValue;
+      otherwise, it will be the first element of the array.
+    - currentValue: The current element being processed in the array.
+    - index (optional): The index of the currentValue in the array.
+    - array (optional): The original array on which reduce() was called. */
+
+// 1
+const groceryItemsCost = [20, 78, 49, 566, 89, 108];
+function totalCost(accumulator, current) {
+    return accumulator + current;
+}
+const totalGroceryCost = groceryItemsCost.reduce(totalCost);
+console.log(totalGroceryCost);
+
+// 2
+const agesOfSomePeople = [18, 20, 39, 22, 21, 45, 50, 30, 80, 62, 95];
+const maximumAge = agesOfSomePeople.reduce(getMaxAge);
+const minimumAge = agesOfSomePeople.reduce(getMinAge);
+function getMaxAge(previousAge, currentAge){
+    return Math.max(previousAge, currentAge);
+}
+function getMinAge(previousAge, currentAge){
+    return Math.min(previousAge, currentAge);
+}
+console.log(maximumAge);
+console.log(minimumAge);
 
 /* Regex */
 function regexDemo() {
