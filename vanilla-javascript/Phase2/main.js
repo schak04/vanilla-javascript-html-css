@@ -311,7 +311,7 @@ console.log(squares);
 const yyyymmdd = ["2025-07-12", "2025-08-28", "2025-12-23"];
 function dateFormatter(date) {
     const partsOfDate = date.split("-");
-    return `${partsOfDate[2]}-${partsOfDate[1]}-${partsOfDate[0]}`;
+    return `${partsOfDate[2]}.${partsOfDate[1]}.${partsOfDate[0]}`;
 }
 const ddmmyyyy = yyyymmdd.map(dateFormatter);
 console.log(yyyymmdd);
