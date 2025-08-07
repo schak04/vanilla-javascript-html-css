@@ -253,7 +253,7 @@ function lc(element, index, array) {
     array[index] = element.toLowerCase();
 }
 function capitalize(element, index, array) { // capitalizes each word of element
-    let words = element.split(" ");
+    const words = element.split(" ");
     words.forEach(cp);
     function cp(e, i, a) {
         a[i] = e.charAt(0).toUpperCase() + e.slice(1);
@@ -294,6 +294,28 @@ nums.forEach(display); // using display function defined at the start of this se
 function double(el, idx, arr) { // modifies the original array nums in place
     arr[idx] = el * 2;
 }
+
+/* map() method:
+    It is used to iterate over each element in an array and create a new array
+    by applying a provided callback function to each element.
+    The original array remains unchanged. */
+// 1
+const numbers = [2, 8, 15, 82, 108];
+function squareNumber(num) {
+    return Math.pow(num, 2);
+}
+const squares = numbers.map(squareNumber);
+console.log(squares);
+
+// 2
+const yyyymmdd = ["2025-07-12", "2025-08-28", "2025-12-23"];
+function dateFormatter(date) {
+    const partsOfDate = date.split("-");
+    return `${partsOfDate[2]}-${partsOfDate[1]}-${partsOfDate[0]}`;
+}
+const ddmmyyyy = yyyymmdd.map(dateFormatter);
+console.log(yyyymmdd);
+console.log(ddmmyyyy);
 
 /* Regex */
 function regexDemo() {
