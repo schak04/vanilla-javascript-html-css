@@ -180,6 +180,7 @@ function callbackDemo() {
 }
 
 // 1
+
 // greet(sup);
 // function greet(callback1) {
 //     console.log("Oi bruv");
@@ -360,6 +361,70 @@ function getMinAge(previousAge, currentAge){
 }
 console.log(maximumAge);
 console.log(minimumAge);
+
+/* Function Expressions: (basically a way to define functions as values or variables; not to be confused with function declarations)
+    In JavaScript, a function expression defines a function within an expression,
+    typically by assigning it to a variable. This contrasts with a function declaration,
+    which defines a named function as a standalone statement. */
+
+// 1
+
+const helloWorld = function() {
+    console.log("Hello World");
+}
+
+// 2
+
+/* The setTimeout() method in JavaScript allows for the delayed execution of a function or
+   the evaluation of a code string after a specified duration. It is a fundamental part of
+   asynchronous programming in JavaScript, enabling tasks to be scheduled without blocking
+   the main execution thread.
+
+const timeoutID = setTimeout(functionToExecute, delayInMilliseconds, param1, param2, ...); */
+
+setTimeout(function() {
+    console.log("HEY")
+}, 5000);
+
+// 3
+
+/* Considering this example from map():
+const numbers = [2, 8, 15, 82, 108];
+function squareNumber(num) {
+    return Math.pow(num, 2);
+}
+const squares = numbers.map(squareNumber);
+console.log(squares); 
+
+Using a function expression the same thing can be done this way: */
+const numbers1 = [21, 82, 153, 821, 148]; // changed the numbers for no reason
+const squares1 = numbers1.map(function(num) {
+    return Math.pow(num, 2);
+});
+console.log(squares1);
+
+// 4
+
+/* Similarly, this code:
+const ages = [15, 12, 14, 18, 19, 21, 20, 26, 29, 30, 45, 60];
+function isAdult(age) {
+    return age>=18;
+}
+const adults = ages.filter(isAdult);
+console.log(adults);
+
+...can be written like this using function expressions: */
+const ages1 = [15, 12, 14, 18, 19, 21, 20, 26, 29, 30, 45, 60];
+const adults1 = ages1.filter(function(age) {
+    return age>=18;
+});
+console.log(adults1);
+
+/* Function expressions are also used in:
+    1. Callbacks in asynchronous operations
+    2. Higher-Order Functions
+    3. Closures
+    4. Event Listeners */
 
 /* Regex */
 function regexDemo() {
