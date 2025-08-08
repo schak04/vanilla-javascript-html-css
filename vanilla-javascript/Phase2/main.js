@@ -212,7 +212,7 @@ User.getUserCount();
     Unlike class-based languages, JavaScript primarily uses prototypal inheritance. */
 
 class Animals {
-    alive = true;
+    alive = true; // no 'let' or 'const' needed as this is a class field (not a scoped variable)
     eat() {
         console.log(`This ${this.name} is eating`);
     }
@@ -245,6 +245,56 @@ console.log(terrestrial.alive);
 terrestrial.eat();
 terrestrial.sleep();
 terrestrial.run();
+
+/* super keyword:
+    The super keyword in JavaScript is used within classes to refer to the parent class
+    (or superclass) and access its members. It is primarily used in the context of class inheritance. */
+
+class Pokemon {
+    constructor(name, level) {
+        this.name = name;
+        this.level = level;
+    }
+    move(speed) {
+        console.log(`${this.name} moves at a speed of ${speed} m/s`);
+    }
+}
+class Pikachu extends Pokemon {
+    constructor(name, level, runSpeed) {
+        super(name, level);
+        this.runSpeed = runSpeed;
+    }
+    run() {
+        console.log(`${this.name} uses Quick Attack!`);
+        super.move(this.runSpeed);
+    }
+}
+class Squirtle extends Pokemon {
+    constructor(name, level, swimSpeed) {
+        super(name, level);
+        this.swimSpeed = swimSpeed;
+    }
+    swim() {
+        console.log(`${this.name} uses Surf!`);
+        super.move(this.swimSpeed);
+    }
+}
+class Pidgeot extends Pokemon {
+    constructor(name, level, flySpeed) {
+        super(name, level);
+        this.flySpeed = flySpeed;
+    }
+    fly() {
+        console.log(`${this.name} uses Fly!`);
+        super.move(this.flySpeed);
+    }
+}
+const pikachu = new Pikachu("Pikachu", 15, 35);
+const squirtle = new Squirtle("Squirtle", 12, 20);
+const pidgeot = new Pidgeot("Pidgeot", 36, 80);
+pikachu.run();
+squirtle.swim();
+pidgeot.fly();
 
 /* Optional Chaining & Nullish Coalescing */
 function optionalChainingDemo() {
