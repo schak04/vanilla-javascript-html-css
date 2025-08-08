@@ -206,6 +206,46 @@ user2.sayHello();
 user3.sayHello();
 User.getUserCount();
 
+/* Inheritance: (allows a new class to inherit properties and methods from an existing class; helps with code reusability)
+    It is a mechanism that allows objects (in JS) to acquire properties and methods from other objects,
+    promoting code reusability and establishing relationships between them.
+    Unlike class-based languages, JavaScript primarily uses prototypal inheritance. */
+
+class Animals {
+    alive = true;
+    eat() {
+        console.log(`This ${this.name} is eating`);
+    }
+    sleep() {
+        console.log(`This ${this.name} is sleeping`);
+    }
+}
+class TerrestrialAnimal extends Animals {
+    name = "dog";
+    run() {
+        console.log(`This ${this.name} is running`);
+    }
+}
+class AquaticAnimal extends Animals {
+    name = "shark";
+    swim() {
+        console.log(`This ${this.name} is swimming`);
+    }
+}
+class AerialAnimal extends Animals {
+    name = "eagle";
+    fly() {
+        console.log(`This ${this.name} is flying`);
+    }
+}
+const terrestrial = new TerrestrialAnimal();
+const aquatic = new AquaticAnimal();
+const aerial = new AerialAnimal();
+console.log(terrestrial.alive);
+terrestrial.eat();
+terrestrial.sleep();
+terrestrial.run();
+
 /* Optional Chaining & Nullish Coalescing */
 function optionalChainingDemo() {
     const user = { profile: { email: "a@b.com" } };
