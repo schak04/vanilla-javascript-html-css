@@ -119,7 +119,12 @@ function destructuringDemo() {
     While JavaScript fundamentally uses a prototype-based inheritance model, classes offer
     a syntactic sugar layer over this, making it easier for devs familiar with class-based
     languages like C++ or Java (hence, devs like me, as I'm familiar with both) to write
-    object-oriented code in JavaScript. */
+    object-oriented code in JavaScript.
+    
+    Note:
+    In JavaScript, we usually don't need to declare class fields before using them in the
+    constructor because of how JavaScript handles object properties dynamically at runtime.
+    Fields are dynamically added to the object when we assign them in the constructor. */
 
 // 1
 class Animal {
@@ -187,14 +192,14 @@ console.log(Circle.getArea(12));
 // 2
 class User {
     static userCount = 0;
-    constructor(username){
+    constructor(username) {
         this.username = username;
         User.userCount++;
     }
-    sayHello(){
+    sayHello() {
         console.log(`Hello, my username is ${this.username}.`);
     }
-    static getUserCount(){
+    static getUserCount() {
         console.log(`There are ${User.userCount} users online.`);
     }
 }
@@ -296,18 +301,109 @@ pikachu.run();
 squirtle.swim();
 pidgeot.fly();
 
-/* Optional Chaining & Nullish Coalescing */
-function optionalChainingDemo() {
-    const user = { profile: { email: "a@b.com" } };
-    const email = user.profile?.email ?? "No email";
-    const phone = user.profile?.phone ?? "No phone";
-    print(`Email: ${email}, Phone: ${phone}`);
-}
+/* Getters & Setters:
+    In JavaScript, getters and setters are special methods used to control access
+    to object properties. They allow for the retrieval (get) and modification (set)
+    of property values, often providing a layer of abstraction and enabling validation
+    or other logic during property access. 
+    
+    getter = special method that makes a property readable
+    setter = special method that makes a property writeable
+    These validate and modify a value when reading/writing a property.
 
-/* Template Literals & Default Params */
-function templateLiteralDemo(name = "Guest") {
-    print(`Welcome, ${name}! Today is ${new Date().toLocaleDateString()}`);
+    Note:
+    Inside a `set` or `get`, don’t use the same name
+    as the setter/getter. It causes infinite recursion.
+    Add an underscore before it instead. 
+    
+    underscore = private */
+
+// 1
+class Rectangle {
+    constructor(width, height) {
+        this.width = width;
+        this.height = height;
+    }
+    set width(w) {
+        if (w > 0) {
+            this._width = w;
+        }
+        else {
+            console.error("Width must be a positive number");
+        }
+    }
+    set height(h) {
+        if (h > 0) {
+            this._height = h;
+        }
+        else {
+            console.error("Height must be a positive number");
+        }
+    }
+    get width() {
+        return `${this._width.toFixed(1)} cm`;
+    }
+    get height() {
+        return `${this._height.toFixed(1)} cm`;
+    }
+    get area() { // area can be accessed as a property using this getter, even though it isn't one
+        return `${(this._width * this._height).toFixed(1)} cm²`; // win + ; -> math symbols -> number superscripts -> ²
+    }
 }
+const rectangle = new Rectangle(2, 3);
+console.log(rectangle.width);
+console.log(rectangle.height);
+console.log(rectangle.area);
+
+// 2
+class Puhhhhson {
+    constructor(firstName, lastName, age) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.age = age;
+    }
+    set firstName(fn) {
+        if (typeof fn === "string" && fn.length > 0) {
+            this._firstName = fn;
+        }
+        else {
+            console.error("First name must be a non-empty string");
+        }
+    }
+    set lastName(ln) {
+        if (typeof ln === "string" && ln.length > 0) {
+            this._lastName = ln;
+        }
+        else {
+            console.error("Last name must be a non-empty string");
+        }
+    }
+    set age(a) {
+        if (typeof a === "number" && a >= 0) {
+            this._age = a;
+        }
+        else {
+            console.error("Age must be a non-negative number");
+        }
+    }
+    get firstName() {
+        return this._firstName;
+    }
+    get lastName() {
+        return this._lastName;
+    }
+    get fullName() {
+        return this._firstName + " " + this._lastName;
+    }
+    get age() {
+        return this._age;
+    }
+}
+const puhhson = new Puhhhhson("Ash", "Ketchum", 10);
+console.log(puhhson.firstName);
+console.log(puhhson.lastName);
+console.log(puhhson.fullName);
+console.log(puhhson.age);
 
 /* Spread & Rest Operators */
 function spreadRestDemo() {
@@ -342,7 +438,6 @@ function callbackDemo() {
 }
 
 // 1
-
 // greet(sup);
 // function greet(callback1) {
 //     console.log("Oi bruv");
@@ -361,27 +456,25 @@ function greet(callback1) {
     console.log("Oi bruv");
     callback1();
 }
-function bidbye(){
+function bidbye() {
     console.log("Bye");
 }
-function sup(callback2){
+function sup(callback2) {
     console.log("Sup");
     callback2();
 }
 
 // 2
-
 multiply(pagePrint, 4, 5);
-
 function multiply(callback, a, b) {
-    let prod = a*b;
+    let prod = a * b;
     callback(prod);
 }
 // function consolePrint(prod) { // lesson: NEVER name a custom function 'console' -> it makes console.log() doesn't work
 //     console.log(prod);
 // }
 function pagePrint(prod) {
-    document.getElementById("output").textContent = prod; 
+    document.getElementById("output").textContent = prod;
 }
 
 /*
@@ -484,7 +577,7 @@ console.log(ddmmyyyy);
 
 const ages = [15, 12, 14, 18, 19, 21, 20, 26, 29, 30, 45, 60];
 function isAdult(age) {
-    return age>=18;
+    return age >= 18;
 }
 const adults = ages.filter(isAdult);
 console.log(adults);
@@ -515,10 +608,10 @@ console.log(totalGroceryCost);
 const agesOfSomePeople = [18, 20, 39, 22, 21, 45, 50, 30, 80, 62, 95];
 const maximumAge = agesOfSomePeople.reduce(getMaxAge);
 const minimumAge = agesOfSomePeople.reduce(getMinAge);
-function getMaxAge(previousAge, currentAge){
+function getMaxAge(previousAge, currentAge) {
     return Math.max(previousAge, currentAge);
 }
-function getMinAge(previousAge, currentAge){
+function getMinAge(previousAge, currentAge) {
     return Math.min(previousAge, currentAge);
 }
 console.log(maximumAge);
@@ -531,7 +624,7 @@ console.log(minimumAge);
 
 // 1
 
-const helloWorld = function() {
+const helloWorld = function () {
     console.log("Hello World");
 }
 
@@ -562,7 +655,7 @@ console.log(squares);
 
 Using a function expression the same thing can be done this way: */
 const numbers1 = [21, 82, 153, 821, 148]; // changed the numbers for no reason
-const squares1 = numbers1.map(function(num) {
+const squares1 = numbers1.map(function (num) {
     return Math.pow(num, 2);
 });
 console.log(squares1);
@@ -579,8 +672,8 @@ console.log(adults);
 
 ...can be written like this using function expressions: */
 const ages1 = [15, 12, 14, 18, 19, 21, 20, 26, 29, 30, 45, 60];
-const adults1 = ages1.filter(function(age) {
-    return age>=18;
+const adults1 = ages1.filter(function (age) {
+    return age >= 18;
 });
 console.log(adults1);
 
@@ -606,7 +699,7 @@ const helloWorld = function() {
 }
 This code can be written using arrow functions like: */
 
-const helloWorld1 = () => {console.log("Hello World");}
+const helloWorld1 = () => { console.log("Hello World"); }
 helloWorld1();
 
 // 2
@@ -621,13 +714,15 @@ This code can be written using arrow functions like: */
 
 const ages2 = [15, 12, 14, 18, 19, 21, 20, 26, 29, 30, 45, 60];
 const adults2 = ages2.filter((age) => {
-    return age>=18;
+    return age >= 18;
 });
 console.log(adults2);
 
 // 3
-const helloNameAge = (name, age) => {console.log(`Hello ${name}`);
-                                    console.log(`You are ${age} years old.`);};
+const helloNameAge = (name, age) => {
+    console.log(`Hello ${name}`);
+    console.log(`You are ${age} years old.`);
+};
 helloNameAge("Sapto", 21);
 
 // 4
@@ -658,8 +753,8 @@ const person = {
     age: 21,
     // greet: function(){console.log(`Hello, I'm ${this.firstName} and I'm ${this.age} years old.`)},
     // work: function(){console.log("I'm working.")}
-    greet() {console.log(`Hello, I'm ${this.firstName} and I'm ${this.age} years old.`);}, // if `this` is involved then arrow functions don't work
-    work: ()=>{console.log("I'm working.");} // if `this` isn't involved then arrow functions WORK
+    greet() { console.log(`Hello, I'm ${this.firstName} and I'm ${this.age} years old.`); }, // if `this` is involved then arrow functions don't work
+    work: () => { console.log("I'm working."); } // if `this` isn't involved then arrow functions WORK
 }
 console.log(person.firstName);
 person.greet();
@@ -674,12 +769,12 @@ person.work();
 const food1 = {
     nayme: "fried pomfret",
     price: "₹550",
-    details(){console.log(`This ${this.nayme} costs ${this.price}.`)}
+    details() { console.log(`This ${this.nayme} costs ${this.price}.`) }
 }
 const food2 = {
     nayme: "mishti doi",
     price: "₹400",
-    details(){console.log(`This ${this.nayme} costs ${this.price}.`)}
+    details() { console.log(`This ${this.nayme} costs ${this.price}.`) }
 }
 food1.details();
 food2.details();
@@ -690,12 +785,12 @@ food2.details();
     creating multiple instances of a similar type of object, defining
     the properties and behaviors that each new object will possess. */
 
-function VideoGame(name, genre, yearOfRelease, rating){
+function VideoGame(name, genre, yearOfRelease, rating) {
     this.name = name,
-    this.genre = genre,
-    this.yearOfRelease = yearOfRelease,
-    this.rating = rating,
-    this.play = function(){console.log(`Playing a game of genre: ${this.genre}`)}
+        this.genre = genre,
+        this.yearOfRelease = yearOfRelease,
+        this.rating = rating,
+        this.play = function () { console.log(`Playing a game of genre: ${this.genre}`) }
 }
 
 const game1 = new VideoGame("Terraria", "Action-Adventure", 2011, "10/10");
@@ -829,4 +924,17 @@ function formSubmissionDemo() {
         form.remove();
     };
     document.body.appendChild(form);
+}
+
+/* Optional Chaining & Nullish Coalescing */
+function optionalChainingDemo() {
+    const user = { profile: { email: "a@b.com" } };
+    const email = user.profile?.email ?? "No email";
+    const phone = user.profile?.phone ?? "No phone";
+    print(`Email: ${email}, Phone: ${phone}`);
+}
+
+/* Template Literals & Default Params */
+function templateLiteralDemo(name = "Guest") {
+    print(`Welcome, ${name}! Today is ${new Date().toLocaleDateString()}`);
 }
