@@ -113,7 +113,15 @@ function destructuringDemo() {
     print(`Name: ${name}, Age: ${age}, First: ${first}, Third: ${third}`);
 }
 
-/* Classes */
+/* Classes:
+    JavaScript classes, introduced in ECMAScript 2015 (ES6), provide a more structured
+    and object-oriented way to create objects with shared properties and methods.
+    While JavaScript fundamentally uses a prototype-based inheritance model, classes offer
+    a syntactic sugar layer over this, making it easier for devs familiar with class-based
+    languages like C++ or Java (hence, devs like me, as I'm familiar with both) to write
+    object-oriented code in JavaScript. */
+
+// 1
 class Animal {
     constructor(name) {
         this.name = name;
@@ -122,17 +130,37 @@ class Animal {
         return `${this.name} makes a noise.`;
     }
 }
-
 class Dog extends Animal {
     speak() {
         return `${this.name} barks.`;
     }
 }
-
 function classDemo() {
     const dog = new Dog("Rex");
     print(dog.speak());
 }
+
+// 2
+class Item {
+    constructor(name, price) {
+        this.name = name;
+        this.price = price;
+    }
+    displayItem() {
+        console.log(`Item: ${this.name}`);
+        console.log(`Price: ₹${this.price.toFixed(2)}`);
+    }
+    calculateTotal(GST) {
+        return this.price + (this.price * GST);
+    }
+}
+const GST = 0.15;
+const item1 = new Item("Razor", 40);
+const item2 = new Item("Soap", 100);
+const item3 = new Item("Boxers", 299);
+item1.displayItem();
+const totalPrice = item1.calculateTotal(GST);
+console.log(`Total price (with GST) for ${item1.name}: ₹${totalPrice.toFixed(2)}`);
 
 /* Optional Chaining & Nullish Coalescing */
 function optionalChainingDemo() {
@@ -522,7 +550,7 @@ const food2 = {
 food1.details();
 food2.details();
 
-/* Constructors:
+/* Constructor Functions: (not to be confused with class constructors)
     In JavaScript, a constructor is a special function or method
     used to create and initialize objects. It acts as a blueprint for
     creating multiple instances of a similar type of object, defining
@@ -558,6 +586,8 @@ console.log(game3.name);
 console.log(game3.genre);
 console.log(game3.yearOfRelease);
 console.log(game3.rating);
+
+/*  */
 
 /* Regex */
 function regexDemo() {
