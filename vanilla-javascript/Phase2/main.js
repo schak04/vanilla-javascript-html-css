@@ -522,6 +522,43 @@ const food2 = {
 food1.details();
 food2.details();
 
+/* Constructors:
+    In JavaScript, a constructor is a special function or method
+    used to create and initialize objects. It acts as a blueprint for
+    creating multiple instances of a similar type of object, defining
+    the properties and behaviors that each new object will possess. */
+
+function VideoGame(name, genre, yearOfRelease, rating){
+    this.name = name,
+    this.genre = genre,
+    this.yearOfRelease = yearOfRelease,
+    this.rating = rating,
+    this.play = function(){console.log(`Playing a game of genre: ${this.genre}`)}
+}
+
+const game1 = new VideoGame("Terraria", "Action-Adventure", 2011, "10/10");
+const game2 = new VideoGame("Dark Souls", "Soulsborne", 2011, "10/10");
+const game3 = new VideoGame("The Witcher 3", "Action RPG", 2015, "10/10");
+
+game1.play();
+game2.play();
+game3.play();
+
+console.log(game1.name);
+console.log(game1.genre);
+console.log(game1.yearOfRelease);
+console.log(game1.rating);
+
+console.log(game2.name);
+console.log(game2.genre);
+console.log(game2.yearOfRelease);
+console.log(game2.rating);
+
+console.log(game3.name);
+console.log(game3.genre);
+console.log(game3.yearOfRelease);
+console.log(game3.rating);
+
 /* Regex */
 function regexDemo() {
     const str = "abc123xyz";
