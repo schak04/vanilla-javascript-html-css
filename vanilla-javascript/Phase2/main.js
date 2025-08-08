@@ -162,6 +162,50 @@ item1.displayItem();
 const totalPrice = item1.calculateTotal(GST);
 console.log(`Total price (with GST) for ${item1.name}: ₹${totalPrice.toFixed(2)}`);
 
+/* static keyword:
+    In JavaScript, the static keyword is used within class definitions to define methods
+    or properties that belong to the class itself, rather than to instances of the class. */
+
+// 1
+class Circle {
+    static PI = 3.14159;
+    static getDiameter(radius) {
+        return radius * 2;
+    }
+    static getCircumference(radius) {
+        return 2 * this.PI * radius;
+    }
+    static getArea(radius) {
+        return this.PI * radius * radius;
+    }
+}
+console.log(Circle.PI); // no need to make objects cuz static
+console.log(Circle.getDiameter(12));
+console.log(Circle.getCircumference(12));
+console.log(Circle.getArea(12));
+
+// 2
+class User {
+    static userCount = 0;
+    constructor(username){
+        this.username = username;
+        User.userCount++;
+    }
+    sayHello(){
+        console.log(`Hello, my username is ${this.username}.`);
+    }
+    static getUserCount(){
+        console.log(`There are ${User.userCount} users online.`);
+    }
+}
+const user1 = new User("Sapto");
+const user2 = new User("Solaire");
+const user3 = new User("Geralt");
+user1.sayHello();
+user2.sayHello();
+user3.sayHello();
+User.getUserCount();
+
 /* Optional Chaining & Nullish Coalescing */
 function optionalChainingDemo() {
     const user = { profile: { email: "a@b.com" } };
