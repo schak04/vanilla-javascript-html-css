@@ -804,8 +804,6 @@ console.log(game3.genre);
 console.log(game3.yearOfRelease);
 console.log(game3.rating);
 
-/*  */
-
 /* Regex */
 function regexDemo() {
     const str = "abc123xyz";
