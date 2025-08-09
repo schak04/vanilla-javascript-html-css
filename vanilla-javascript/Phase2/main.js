@@ -405,15 +405,6 @@ console.log(puhhson.lastName);
 console.log(puhhson.fullName);
 console.log(puhhson.age);
 
-/* Spread & Rest Operators */
-function spreadRestDemo() {
-    const arr1 = [1, 2];
-    const arr2 = [3, 4];
-    const combined = [...arr1, ...arr2];
-    function sum(...nums) { return nums.reduce((a, b) => a + b, 0); }
-    print(`Combined: ${combined.join(", ")}, Sum: ${sum(1, 2, 3, 4)}`);
-}
-
 /* Custom Events */
 function customEventDemo() {
     document.addEventListener("myCustomEvent", e => print(`Custom event triggered! Detail: ${e.detail}`));
