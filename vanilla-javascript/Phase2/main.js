@@ -104,15 +104,6 @@ function arrayOperations() {
     print(`Original: ${nums.join(", ")}\nDoubled: ${doubled.join(", ")}\nEven: ${even.join(", ")}\nTotal: ${total}`);
 }
 
-/* Destructuring */
-function destructuringDemo() {
-    const person = { name: "Alex", age: 30, city: "London" };
-    const { name, age } = person; // Object destructuring
-    const arr = [10, 20, 30];
-    const [first, , third] = arr; // Array destructuring
-    print(`Name: ${name}, Age: ${age}, First: ${first}, Third: ${third}`);
-}
-
 /* Classes:
     JavaScript classes, introduced in ECMAScript 2015 (ES6), provide a more structured
     and object-oriented way to create objects with shared properties and methods.
@@ -405,9 +396,24 @@ console.log(puhhson.lastName);
 console.log(puhhson.fullName);
 console.log(puhhson.age);
 
+/* Destructuring:
+    Destructuring in JavaScript is a powerful feature that provides a
+    concise syntax for extracting values from arrays and properties from
+    objects into distinct variables. This simplifies code by reducing the
+    need for verbose access methods and improves readability.
+    
+    Basically, it's the process of extracting values from arrays
+    and objects, and then assigning them to variables in a convenient way.
+    [] = to perform array destructuring
+    {} = to perform object destructuring */
 
-
-
+function destructuringDemo() {
+    const person = { name: "Alex", age: 30, city: "London" };
+    const { name, age } = person; // Object destructuring
+    const arr = [10, 20, 30];
+    const [first, , third] = arr; // Array destructuring
+    print(`Name: ${name}, Age: ${age}, First: ${first}, Third: ${third}`);
+}
 
 /* Callbacks: A callback in JavaScript is a function passed as an argument to another function.
 Common Use Cases:
