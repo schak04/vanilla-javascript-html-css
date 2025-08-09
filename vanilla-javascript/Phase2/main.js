@@ -405,12 +405,9 @@ console.log(puhhson.lastName);
 console.log(puhhson.fullName);
 console.log(puhhson.age);
 
-/* Custom Events */
-function customEventDemo() {
-    document.addEventListener("myCustomEvent", e => print(`Custom event triggered! Detail: ${e.detail}`));
-    const event = new CustomEvent("myCustomEvent", { detail: "Hello from custom event!" });
-    document.dispatchEvent(event);
-}
+
+
+
 
 /* Callbacks: A callback in JavaScript is a function passed as an argument to another function.
 Common Use Cases:
@@ -901,6 +898,13 @@ function addEventListenerDemo() {
     btn.onclick = () => btn.remove();
     btn.addEventListener('click', () => print('Button clicked using addEventListener!'));
     document.body.appendChild(btn);
+}
+
+/* Custom Events */
+function customEventDemo() {
+    document.addEventListener("myCustomEvent", e => print(`Custom event triggered! Detail: ${e.detail}`));
+    const event = new CustomEvent("myCustomEvent", { detail: "Hello from custom event!" });
+    document.dispatchEvent(event);
 }
 
 /* Form Submission */
