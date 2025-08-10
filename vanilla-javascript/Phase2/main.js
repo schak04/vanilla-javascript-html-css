@@ -472,7 +472,6 @@ displayPerson(person3);
     In JavaScript, nested objects are objects contained within other objects.
     This structure allows for the representation of complex, hierarchical data,
     making it easier to organize and manage related information. */
-
 class Personn {
     constructor(name, age, ...address) {
         this.name = name;
@@ -501,6 +500,21 @@ const pson3 = new Personn("Triss", 98, "The Rusted Bits", "Novigrad", "The Conti
 pson1.describe();
 pson2.describe();
 pson3.describe();
+
+/* Array of Objects */
+const foods = [{name: "ilish bhaapa", translation: "steamed hilsa with mustard", type: "main course", calories: 300},
+               {name: "luchi aloor dom", translation: "fried bread with potato curry", type: "main course", calories: 320},
+               {name: "chholar dal", translation: "bengal gram lentils", type: "addon", calories: 180},
+               {name: "shutki machh", translation: "dried fish curry", type: "main course", calories: 280},
+               {name: "mishti doi", translation: "sweet bengali yogurt", type: "dessert", calories: 210}];
+console.log(foods[0].calories); // access properties of a food object
+foods.push({ name: "roshogolla", translation: "sugar syrup soaked cottage cheese balls", type: "dessert", calories: 150 }); // add a new food object
+foods.pop(); // remove the last food object
+foods.splice(1, 2); // remove food objects by indices
+foods.forEach(food=>console.log(food.name)); // display each object's name using forEach()
+const foodNameTranslations = foods.map(food=>food.translation); console.log(foodNameTranslations); // display food name translations using map() method
+const desserts = foods.filter(food=>food.type==="dessert"); console.log(desserts); // display desserts using filter() method
+const maxCalFood = foods.reduce((maxTillNow, currentFood)=>currentFood.calories>maxTillNow?currentFood:maxTillNow); console.log(maxCalFood); // display max calorie food using reduce() method
 
 /* Callbacks: A callback in JavaScript is a function passed as an argument to another function.
 Common Use Cases:
