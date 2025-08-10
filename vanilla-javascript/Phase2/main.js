@@ -406,7 +406,7 @@ console.log(puhhson.age);
     and objects, and then assigning them to variables in a convenient way.
     [] = to perform array destructuring
     {} = to perform object destructuring */
-
+// 1
 function destructuringDemo() {
     const person = { name: "Alex", age: 30, city: "London" };
     const { name, age } = person; // Object destructuring
@@ -414,6 +414,59 @@ function destructuringDemo() {
     const [first, , third] = arr; // Array destructuring
     print(`Name: ${name}, Age: ${age}, First: ${first}, Third: ${third}`);
 }
+
+// 2
+let a = 1
+let b = 2;
+[a, b] = [b, a]; // swap two variables (a & b)
+console.log(a);
+console.log(b);
+
+// 3
+const colors = ['red', 'green', 'blue', 'black', 'white'];
+[colors[0], colors[4]] = [colors[4], colors[0]]; // swap two array elements
+console.log(colors);
+
+// 4
+const [firstColor, secondColor, thirdColor, ...extraColors] = colors; // assign array elements to variables
+console.log(firstColor);
+console.log(secondColor);
+console.log(thirdColor);
+console.log(extraColors);
+
+// 5
+const person1 = {
+    firstName: "Panam",
+    lastName: "Palmer",
+    age: 33,
+    job: "Mercenary"
+};
+const person2 = {
+    firstName: "Alt",
+    lastName: "Cunningham",
+    age: 34,
+    job: "Programmer"
+};
+const person3 = {
+    firstName: "Johnny",
+    lastName: "Silverhand",
+    age: 34
+};
+const { firstName, lastName, age, job = "Unemployed" } = person2; // extract values from objects
+console.log(firstName);
+console.log(lastName);
+console.log(age);
+console.log(job);
+
+// 6
+function displayPerson({ firstName, lastName, age, job = "Unemployed" }) { // destructuring in function parameters
+    console.log(`name: ${firstName} ${lastName}`);
+    console.log(`age: ${age}`);
+    console.log(`job: ${job}`);
+}
+displayPerson(person1);
+displayPerson(person2);
+displayPerson(person3);
 
 /* Callbacks: A callback in JavaScript is a function passed as an argument to another function.
 Common Use Cases:
