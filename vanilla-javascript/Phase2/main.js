@@ -468,6 +468,40 @@ displayPerson(person1);
 displayPerson(person2);
 displayPerson(person3);
 
+/* Nested Objects:
+    In JavaScript, nested objects are objects contained within other objects.
+    This structure allows for the representation of complex, hierarchical data,
+    making it easier to organize and manage related information. */
+
+class Personn {
+    constructor(name, age, ...address) {
+        this.name = name;
+        this.age = age;
+        this.address = new Address(...address);
+    }
+    describe() {
+        console.log(`Name: ${this.name}`);
+        console.log(`Age: ${this.age}`);
+        console.log(`Address: ${this.address.fullAddress()}`);
+    }
+}
+class Address {
+    constructor(street, city, country) {
+        this.street = street;
+        this.city = city;
+        this.country = country;
+    }
+    fullAddress() {
+        return `${this.street}, ${this.city}, ${this.country}`;
+    }
+}
+const pson1 = new Personn("Geralt", 100, "Kaer Morhen Keep", "Kaedwen", "The Continent");
+const pson2 = new Personn("Yennefer", 99, "Vengerberg Palace", "Aedirn", "The Continent");
+const pson3 = new Personn("Triss", 98, "The Rusted Bits", "Novigrad", "The Continent");
+pson1.describe();
+pson2.describe();
+pson3.describe();
+
 /* Callbacks: A callback in JavaScript is a function passed as an argument to another function.
 Common Use Cases:
 - Asynchronous Operations:
