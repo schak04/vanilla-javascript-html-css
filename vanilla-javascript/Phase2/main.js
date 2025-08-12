@@ -545,6 +545,62 @@ students.sort((a, b) => a.name.localeCompare(b.name)); // by name - ascending
 students.sort((a, b) => b.name.localeCompare(a.name)); // by name - descending
 console.log(students);
 
+/* Date Objects:
+    In JavaScript, Date objects are used to work with dates and times.
+    They represent a single moment in time, in a platform-independent format.
+    
+    0. Current date and time:
+        Date() -> no arguments
+            const date = new Date();
+            console.log(date);
+    1. Datetime comma-separated arguments:
+        Date(year, month, day, hour, min, sec, millisec)
+        where, month -> 0 means January, 11 means December
+    2. Datetime string arguments:
+        Date("YYYY-MM-DDTHH:mm:ssZ")
+    3. milliseconds since epoch:
+        Date(0) -> Dec 31st 1969
+        Date(x) -> Date and time x milliseconds since epoch
+*/
+
+const date = new Date();
+
+/* get methods */
+const year = date.getFullYear(); // full year
+console.log(`Year: ${year}`);
+const month = date.getMonth(); // month
+console.log(`Month: ${month+1}`); // January = 0, February = 1, ..., December = 12 -> that is why I added 1
+const day = date.getDate(); // day -> getDate()
+console.log(`Day: ${day}`);
+const dayOfWeek = date.getDay(); // dayOfWeek -> getDay()
+console.log(`Day of week: ${dayOfWeek+1}`); // Sunday = 0, Monday = 1, ..., Saturday = 6 -> that is why I added 1
+const hour = date.getHours(); // hour
+console.log(`Hour: ${hour}`);
+const minutes = date.getMinutes(); // minutes
+console.log(`Minutes: ${minutes}`);
+const seconds = date.getSeconds(); // seconds
+console.log(`Seconds: ${seconds}`);
+
+/* set methods */
+// date.setFullYear(2035);
+// date.setMonth(7);
+// date.setDate(28);
+// date.setHours(7);
+// date.setMinutes(45);
+// date.setSeconds(14);
+
+console.log(`Date: ${date}`);
+
+/* comparing dates */
+/* const date1 = new Date("2025-06-08");
+   const date2 = new Date("2026-09-28");
+   if (date1 < date2) console.log(`${date1} comes before ${date2}`);
+   else console.log(`${date1} comes after ${date2}`); */
+const SaptoTurns21 = new Date("2025-08-28");
+if (date === SaptoTurns21) console.log("Sapto turns 21 today. Happy Birthday KING!!");
+else if (date<SaptoTurns21) console.log("Sapto isn't 21 yet.");
+else if (date>SaptoTurns21) console.log("Sapto is 21 or older.");
+
 /* Callbacks: A callback in JavaScript is a function passed as an argument to another function.
 Common Use Cases:
 - Asynchronous Operations:
