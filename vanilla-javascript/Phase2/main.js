@@ -77,14 +77,20 @@ function testStorage() {
     print("LocalStorage value: " + val);
 }
 
-/* Closures */
-let closureCounter = createCounter();
+/* Closures:
+    A closure in JavaScript is the combination of a function and the lexical environment
+    within which that function was declared. This means that an inner function, defined
+    inside an outer function, retains access to the outer function's variables and
+    parameters, even after the outer function has finished executing.
+    Closures allow for private variables and state maintenance.
+    Used frequently in JS frameworks: React, Vue, Angular */
 
+// 1
+let closureCounter = createCounter();
 function closureTest() {
     const count = closureCounter();
     print("Closure count: " + count);
 }
-
 function createCounter() {
     let count = 0;
     return function () {
@@ -93,14 +99,63 @@ function createCounter() {
     };
 }
 
+// 2
+function outer(){
+    const message = "Hello"; // this is private
+    function inner(){
+        console.log(message);
+    }
+    inner();
+}
+message = "Goodbye";
+outer();
+
+// 3
+function createCounter() {
+    let count = 0; // if we made this gloabal it won't be secure -> so we use CLOSURES for state maintenance -> makes it private & secure
+    function increment() {
+        count++;
+        console.log(`Count increased to ${count}`);
+    }
+    function getCount() {
+        return count;
+    }
+    return {increment, getCount};
+}
+const counter = createCounter();
+counter.increment();
+counter.increment();
+counter.increment();
+console.log(`Current count: ${counter.getCount()}`);
+
+// 4
+function createGame(){
+    let score = 0;
+    function increaseScore(points){
+        score += points;
+        console.log(`+${points}pts`);
+    }
+    function decreaseScore(points){
+        score -= points;
+        console.log(`-${points}pts`);
+    }
+    function getScore(){
+        return score;
+    }
+    return {increaseScore, decreaseScore, getScore};
+}
+const game = createGame();
+game.increaseScore(5);
+game.increaseScore(6);
+game.decreaseScore(3);
+console.log(`The final score is ${game.getScore()}pts`);
+
 /* Array Methods */
 function arrayOperations() {
     const nums = [1, 2, 3, 4, 5];
-
     const doubled = nums.map(n => n * 2);
     const even = nums.filter(n => n % 2 === 0);
     const total = nums.reduce((acc, val) => acc + val, 0);
-
     print(`Original: ${nums.join(", ")}\nDoubled: ${doubled.join(", ")}\nEven: ${even.join(", ")}\nTotal: ${total}`);
 }
 
