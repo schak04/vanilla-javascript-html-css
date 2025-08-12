@@ -100,9 +100,9 @@ function createCounter() {
 }
 
 // 2
-function outer(){
+function outer() {
     const message = "Hello"; // this is private
-    function inner(){
+    function inner() {
         console.log(message);
     }
     inner();
@@ -120,7 +120,7 @@ function createCounter() {
     function getCount() {
         return count;
     }
-    return {increment, getCount};
+    return { increment, getCount };
 }
 const counter = createCounter();
 counter.increment();
@@ -129,20 +129,20 @@ counter.increment();
 console.log(`Current count: ${counter.getCount()}`);
 
 // 4
-function createGame(){
+function createGame() {
     let score = 0;
-    function increaseScore(points){
+    function increaseScore(points) {
         score += points;
         console.log(`+${points}pts`);
     }
-    function decreaseScore(points){
+    function decreaseScore(points) {
         score -= points;
         console.log(`-${points}pts`);
     }
-    function getScore(){
+    function getScore() {
         return score;
     }
-    return {increaseScore, decreaseScore, getScore};
+    return { increaseScore, decreaseScore, getScore };
 }
 const game = createGame();
 game.increaseScore(5);
@@ -624,11 +624,11 @@ const date = new Date();
 const year = date.getFullYear(); // full year
 console.log(`Year: ${year}`);
 const month = date.getMonth(); // month
-console.log(`Month: ${month+1}`); // January = 0, February = 1, ..., December = 12 -> that is why I added 1
+console.log(`Month: ${month + 1}`); // January = 0, February = 1, ..., December = 12 -> that is why I added 1
 const day = date.getDate(); // day -> getDate()
 console.log(`Day: ${day}`);
 const dayOfWeek = date.getDay(); // dayOfWeek -> getDay()
-console.log(`Day of week: ${dayOfWeek+1}`); // Sunday = 0, Monday = 1, ..., Saturday = 6 -> that is why I added 1
+console.log(`Day of week: ${dayOfWeek + 1}`); // Sunday = 0, Monday = 1, ..., Saturday = 6 -> that is why I added 1
 const hour = date.getHours(); // hour
 console.log(`Hour: ${hour}`);
 const minutes = date.getMinutes(); // minutes
@@ -653,8 +653,43 @@ console.log(`Date: ${date}`);
    else console.log(`${date1} comes after ${date2}`); */
 const SaptoTurns21 = new Date("2025-08-28");
 if (date === SaptoTurns21) console.log("Sapto turns 21 today. Happy Birthday KING!!");
-else if (date<SaptoTurns21) console.log("Sapto isn't 21 yet.");
-else if (date>SaptoTurns21) console.log("Sapto is 21 or older.");
+else if (date < SaptoTurns21) console.log("Sapto isn't 21 yet.");
+else if (date > SaptoTurns21) console.log("Sapto is 21 or older.");
+
+/* setTimeout(): (function in JavaScript that allows you to schedule the execution of a function after an amount of time)
+    The setTimeout() method in JavaScript allows for the delayed execution of a function or
+    the evaluation of a code string after a specified duration. It is a fundamental part of
+    asynchronous programming in JavaScript, enabling tasks to be scheduled without blocking
+    the main execution thread.
+    Times are approximate (vary based on the workload of the JavaScript runtime environment).
+    
+    setTimeout(functionToExecute, delayInMilliseconds, param1, param2, ...);
+    OR to put it simply:
+    setTimeout(callback, delay); */
+
+// 1
+function hello() {
+    console.log("Hello");
+}
+setTimeout(hello, 3000);
+
+// 2 -> clearTimeout(): can cancel a timeout before it triggers
+const timeoutId = setTimeout(() => window.alert("Hello"), 3000);
+clearTimeout(timeoutId);
+
+// 3
+let timeoutId1;
+function showAlert() {
+    window.alert("Hello");
+}
+function startTimer() {
+    timeoutId1 = setTimeout(showAlert, 3000);
+    console.log("STARTED");
+}
+function clearTimer() {
+    clearTimeout(timeoutId1);
+    console.log("CLEARED");
+}
 
 /* Callbacks: A callback in JavaScript is a function passed as an argument to another function.
 Common Use Cases:
@@ -867,13 +902,6 @@ helloWorld();
 
 // 2
 
-/* The setTimeout() method in JavaScript allows for the delayed execution of a function or
-   the evaluation of a code string after a specified duration. It is a fundamental part of
-   asynchronous programming in JavaScript, enabling tasks to be scheduled without blocking
-   the main execution thread.
-
-const timeoutID = setTimeout(functionToExecute, delayInMilliseconds, param1, param2, ...); */
-
 // setTimeout(function() {
 //     console.log("HEY")
 // }, 2000);
@@ -1000,7 +1028,17 @@ person.work();
     current code or the object that owns the function being called.
     Its value is determined at runtime, depending on the context in which
     the function is invoked. */
+// 1
+function thisDemo() {
+    const obj = {
+        name: "Alex",
+        regular: function () { return this.name; },
+        arrow: () => this.name
+    };
+    print(`'this' in regular: ${obj.regular()}\n'this' in arrow: ${obj.arrow}`);
+}
 
+// 2
 const food1 = {
     nayme: "fried pomfret",
     price: "₹550",
@@ -1061,16 +1099,6 @@ function regexDemo() {
 /* Module */
 function moduleDemo() {
     print("Modules let you split code into files and use import/export. See this file for examples!");
-}
-
-/* this */
-function thisDemo() {
-    const obj = {
-        name: "Alex",
-        regular: function () { return this.name; },
-        arrow: () => this.name
-    };
-    print(`'this' in regular: ${obj.regular()}\n'this' in arrow: ${obj.arrow}`);
 }
 
 /* Arrow nuance */
