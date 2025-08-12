@@ -724,6 +724,19 @@ function sleeping() {
 }
 sleeping();
 
+/* .toLocaleString():
+    It returns a string with a language sensitive representation of a number.
+    .toLocaleString("locale", {options}); */
+let number = 123456.789;
+// number = number.toLocaleString("hi-IN");
+// number = number.toLocaleString("en-GB");
+// number = number.toLocaleString("de-DE");
+// number = number.toLocaleString(undefined);
+number = number.toLocaleString("hi-IN", {style: "currency", currency: "INR"});
+// number = number.toLocaleString("en-GB", {style: "currency", currency: "GBP"});
+// number = number.toLocaleString("de-DE", {style: "currency", currency: "EUR"});
+console.log(number);
+
 /* Callbacks: A callback in JavaScript is a function passed as an argument to another function.
 Common Use Cases:
 - Asynchronous Operations:
