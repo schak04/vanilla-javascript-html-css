@@ -502,19 +502,48 @@ pson2.describe();
 pson3.describe();
 
 /* Array of Objects */
-const foods = [{name: "ilish bhaapa", translation: "steamed hilsa with mustard", type: "main course", calories: 300},
-               {name: "luchi aloor dom", translation: "fried bread with potato curry", type: "main course", calories: 320},
-               {name: "chholar dal", translation: "bengal gram lentils", type: "addon", calories: 180},
-               {name: "shutki machh", translation: "dried fish curry", type: "main course", calories: 280},
-               {name: "mishti doi", translation: "sweet bengali yogurt", type: "dessert", calories: 210}];
+const foods = [{ name: "ilish bhaapa", translation: "steamed hilsa with mustard", type: "main course", calories: 300 },
+{ name: "luchi aloor dom", translation: "fried bread with potato curry", type: "main course", calories: 320 },
+{ name: "chholar dal", translation: "bengal gram lentils", type: "addon", calories: 180 },
+{ name: "shutki machh", translation: "dried fish curry", type: "main course", calories: 280 },
+{ name: "mishti doi", translation: "sweet bengali yogurt", type: "dessert", calories: 210 }];
 console.log(foods[0].calories); // access properties of a food object
 foods.push({ name: "roshogolla", translation: "sugar syrup soaked cottage cheese balls", type: "dessert", calories: 150 }); // add a new food object
 foods.pop(); // remove the last food object
 foods.splice(1, 2); // remove food objects by indices
-foods.forEach(food=>console.log(food.name)); // display each object's name using forEach()
-const foodNameTranslations = foods.map(food=>food.translation); console.log(foodNameTranslations); // display food name translations using map() method
-const desserts = foods.filter(food=>food.type==="dessert"); console.log(desserts); // display desserts using filter() method
-const maxCalFood = foods.reduce((maxTillNow, currentFood)=>currentFood.calories>maxTillNow?currentFood:maxTillNow); console.log(maxCalFood); // display max calorie food using reduce() method
+foods.forEach(food => console.log(food.name)); // display each object's name using forEach()
+const foodNameTranslations = foods.map(food => food.translation); console.log(foodNameTranslations); // display food name translations using map() method
+const desserts = foods.filter(food => food.type === "dessert"); console.log(desserts); // display desserts using filter() method
+const maxCalFood = foods.reduce((maxTillNow, currentFood) => currentFood.calories > maxTillNow ? currentFood : maxTillNow); console.log(maxCalFood); // display max calorie food using reduce() method
+
+/* Sorting: method used to sort elements of an array in place.
+            Sorts elements as strings in lexicographic order, not alphabetical.
+            lexicographic = (alphabet + numbers + symbols) as strings 
+            Numbers need a custom comparison function to be passed to the sort method for proper sorting. */
+
+// 1
+const strArr = ["peach", "eggplant", "melons", "taco", "banana", "mangoes"];
+strArr.sort();
+console.log(strArr);
+
+// 2
+const numbuhs = [1, 10, 2, 9, 3, 8, 4, 7, 5, 6];
+numbuhs.sort((a, b) => a - b); // ascending
+numbuhs.sort((a, b) => b - a); // descending
+console.log(numbuhs);
+
+// 3
+const students = [{ name: "Anya", age: 5, gpa: 3.0 },
+{ name: "Bond", age: 2, gpa: 1.5 },
+{ name: "Damian", age: 6, gpa: 3.5 },
+{ name: "Becky", age: 7, gpa: 4.0 }];
+students.sort((a, b) => a.age - b.age); // by age - ascending
+students.sort((a, b) => b.age - a.age); // by age - descending
+students.sort((a, b) => a.gpa - b.gpa); // by gpa - ascending
+students.sort((a, b) => b.gpa - a.gpa); // by gpa - descending
+students.sort((a, b) => a.name.localeCompare(b.name)); // by name - ascending
+students.sort((a, b) => b.name.localeCompare(a.name)); // by name - descending
+console.log(students);
 
 /* Callbacks: A callback in JavaScript is a function passed as an argument to another function.
 Common Use Cases:
