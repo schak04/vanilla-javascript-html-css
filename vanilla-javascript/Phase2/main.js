@@ -691,6 +691,26 @@ function clearTimer() {
     console.log("CLEARED");
 }
 
+/* console.time():
+    It is a tool that allows the measurement of the time it takes for a section of code or process to execute.
+    It is great for identifying performance "bottlenecks". */
+function loadData() {
+    console.time("loadData");
+    for (let i = 0; i < 1000000000; i++) {
+        // pretend to load some data
+    }
+    console.timeEnd("loadData");
+}
+function processData() {
+    console.time("processData");
+    for (let i = 0; i < 1000000; i++) {
+        // pretend to process some data
+    }
+    console.timeEnd("processData");
+}
+loadData();
+processData();
+
 /* Callbacks: A callback in JavaScript is a function passed as an argument to another function.
 Common Use Cases:
 - Asynchronous Operations:
