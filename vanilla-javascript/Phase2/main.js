@@ -691,6 +691,34 @@ function clearTimer() {
     console.log("CLEARED");
 }
 
+/* setInverval() and clearInterval():
+    In JavaScript, setInterval() and clearInterval() are used for controlling
+    repetitive execution of code at specified time intervals.
+    
+setInterval():
+    The setInterval() method schedules a function to be executed repeatedly
+    at a fixed time interval. It returns a unique positive integer, known as
+    the "interval ID", which identifies the timer created.
+    This ID is crucial for stopping the interval later.
+    Code:
+    let intervalID = setInterval(function, milliseconds, [arg1, arg2, ...]);
+    
+clearInterval():
+    The clearInterval() method is used to stop the repetitive execution of a function
+    that was previously started by setInterval().
+    Code:
+    clearInterval(intervalID); */
+
+// let count = 0;
+// const myInterval = setInterval(() => {
+//   console.log(`Count: ${count}`);
+//   count++;
+//   if (count === 5) {
+//     clearInterval(myInterval); // Stop the interval when count reaches 5
+//     console.log("Interval stopped!");
+//   }
+// }, 1000); // Execute every 1 second (= 1000 milliseconds)
+
 /* console.time():
     It is a tool that allows the measurement of the time it takes for a section of code or process to execute.
     It is great for identifying performance "bottlenecks". */
