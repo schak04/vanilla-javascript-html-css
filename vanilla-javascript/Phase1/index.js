@@ -503,7 +503,7 @@ let x = "pizza";
 let y = "pizza";
 let z = "pizza";
 x = Number(x);
-y = String(y);
+y = String(y); // or y = y.toString();
 z = Boolean(z);
 console.log(x, typeof x);
 console.log(y, typeof y);
