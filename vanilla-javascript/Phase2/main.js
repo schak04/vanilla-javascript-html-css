@@ -744,8 +744,8 @@ processData();
 // 2
 function sleeping() {
     console.time("Sleeping");
-    let i=0;
-    while (i<1000000) {
+    let i = 0;
+    while (i < 1000000) {
         i++;
     }
     console.timeEnd("Sleeping");
@@ -760,9 +760,9 @@ let number = 123456.789;
 // number = number.toLocaleString("en-GB");
 // number = number.toLocaleString("de-DE");
 // number = number.toLocaleString(undefined);
-number = number.toLocaleString("hi-IN", {style: "currency", currency: "INR"});
-// number = number.toLocaleString("en-GB", {style: "currency", currency: "GBP"});
-// number = number.toLocaleString("de-DE", {style: "currency", currency: "EUR"});
+number = number.toLocaleString("hi-IN", { style: "currency", currency: "INR" });
+// number = number.toLocaleString("en-GB", { style: "currency", currency: "GBP" });
+// number = number.toLocaleString("de-DE", { style: "currency", currency: "EUR" });
 console.log(number);
 
 /* Callbacks: A callback in JavaScript is a function passed as an argument to another function.
@@ -1186,7 +1186,7 @@ function arrowNuanceDemo() {
 
 /* Debugging */
 function debugDemo() {
-    print("Use console.log(), breakpoints, and browser dev tools for debugging!");
+    print("Use console.log(), breakpoints, and browser dev tools for debugging.");
 }
 
 /* JSON */
@@ -1303,3 +1303,18 @@ function shuffle(array){
     }
 }
 */
+
+/* ES6 Modules:
+    ES6 Modules, introduced in ECMAScript 2015, provide a standardized way to
+    organize and reuse JavaScript code across different files, improving code
+    maintainability and readability. */
+
+import {PI, getCircumference, getArea, getVolume} from '../mathUtil.js';
+console.log(PI);
+let radius = 5.6;
+const circumference = getCircumference(radius);
+const area = getArea(radius);
+const volume = getVolume(radius);
+console.log(`Circumference: ${circumference.toFixed(2)}cm`);
+console.log(`Area: ${area.toFixed(2)}cm²`);
+console.log(`Volume: ${volume.toFixed(2)}cm³`);
