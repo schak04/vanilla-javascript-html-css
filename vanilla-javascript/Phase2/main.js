@@ -1215,7 +1215,15 @@ function fpDemo() {
     print(`Functional Programming:\nDoubled: ${doubled}\nFiltered (even): ${filtered}\nSum: ${sum}`);
 }
 
-/* Error handling in async/await */
+/* Error handling:
+Error: An Object that is created to represent a problem that occurs.
+       Errors occur often with user input or establishing a connection
+try{}: Encloses code that might potentially cause an error
+catch{}: Catches and handles any thrown errors from try {}
+finally{}: (optional) Always executes. Used mostly for cleanup.
+Eg. close files, close connections, release resources
+*/
+// 1 -> in async/await
 async function errorHandlingAsyncDemo() {
     print("Error handling in async/await:");
     try {
@@ -1224,6 +1232,26 @@ async function errorHandlingAsyncDemo() {
         print(`Caught error: ${e}`);
     }
 }
+// 2
+try {
+    const dividend = Number(window.prompt("Enter a dividend: "));
+    const divisor = Number(window.prompt("Enter a divisor: "));
+    if (divisor == 0) {
+        throw new Error("You can't divide by zero!!");
+    }
+    if (isNaN(dividend) || isNaN(divisor)) {
+        throw new Error("The dividend and the divisor must be numbers!!");
+    }
+    const result = dividend / divisor;
+    console.log(result);
+}
+catch (error) {
+    console.error(error);
+}
+finally {
+    console.log("This always executes.");
+}
+console.log("You have reached the end.");
 
 /* Dynamic Import */
 async function dynamicImportDemo() {
@@ -1309,7 +1337,7 @@ function shuffle(array){
     organize and reuse JavaScript code across different files, improving code
     maintainability and readability. */
 
-import {PI, getCircumference, getArea, getVolume} from '../mathUtil.js';
+import { PI, getCircumference, getArea, getVolume } from '../mathUtil.js';
 console.log(PI);
 let radius = 5.6;
 const circumference = getCircumference(radius);
