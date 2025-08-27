@@ -1318,3 +1318,21 @@ const volume = getVolume(radius);
 console.log(`Circumference: ${circumference.toFixed(2)}cm`);
 console.log(`Area: ${area.toFixed(2)}cm²`);
 console.log(`Volume: ${volume.toFixed(2)}cm³`);
+
+/* 
+Synchronous and Asynchronous Nature of JavaScript:
+    JavaScript is known for its ability to handle both synchronous and asynchronous operations.
+    Understanding how these two things work is important for writing efficient, responsive,
+    and user-friendly applications.
+Synchronous:
+    In synchronous programming, operations are performed one after the other, in sequence.
+    Each line of code waits for the previous one to finish before proceeding to the next.
+    This means that the program executes in a predictable, linear order, with
+    each task being completed before the next one starts.
+Asynchronous:
+    Asynchronous programming, on the other hand, allows multiple tasks to run
+    independently of each other. In asynchronous code, a task can be initiated,
+    and while waiting for it to complete, other tasks can proceed.
+    This non-blocking nature helps improve performance and responsiveness,
+    especially in web applications.
+*/
