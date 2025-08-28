@@ -107,11 +107,11 @@ function outer() {
     }
     inner();
 }
-message = "Goodbye";
+let message = "Goodbye";
 outer();
 
 // 3
-function createCounter() {
+function createCounter1() {
     let count = 0; // if we made this gloabal it won't be secure -> so we use CLOSURES for state maintenance -> makes it private & secure
     function increment() {
         count++;
@@ -122,7 +122,7 @@ function createCounter() {
     }
     return { increment, getCount };
 }
-const counter = createCounter();
+const counter = createCounter1();
 counter.increment();
 counter.increment();
 counter.increment();
@@ -1233,25 +1233,25 @@ async function errorHandlingAsyncDemo() {
     }
 }
 // 2
-try {
-    const dividend = Number(window.prompt("Enter a dividend: "));
-    const divisor = Number(window.prompt("Enter a divisor: "));
-    if (divisor == 0) {
-        throw new Error("You can't divide by zero!!");
-    }
-    if (isNaN(dividend) || isNaN(divisor)) {
-        throw new Error("The dividend and the divisor must be numbers!!");
-    }
-    const result = dividend / divisor;
-    console.log(result);
-}
-catch (error) {
-    console.error(error);
-}
-finally {
-    console.log("This always executes.");
-}
-console.log("You have reached the end.");
+// try {
+//     const dividend = Number(window.prompt("Enter a dividend: "));
+//     const divisor = Number(window.prompt("Enter a divisor: "));
+//     if (divisor == 0) {
+//         throw new Error("You can't divide by zero!!");
+//     }
+//     if (isNaN(dividend) || isNaN(divisor)) {
+//         throw new Error("The dividend and the divisor must be numbers!!");
+//     }
+//     const result = dividend / divisor;
+//     console.log(result);
+// }
+// catch (error) {
+//     console.error(error);
+// }
+// finally {
+//     console.log("This always executes.");
+// }
+// console.log("You have reached the end.");
 
 /* Dynamic Import */
 async function dynamicImportDemo() {
@@ -1337,7 +1337,7 @@ function shuffle(array){
     organize and reuse JavaScript code across different files, improving code
     maintainability and readability. */
 
-import { PI, getCircumference, getArea, getVolume } from '../mathUtil.js';
+import { PI, getCircumference, getArea, getVolume } from './mathUtil.js';
 console.log(PI);
 let radius = 5.6;
 const circumference = getCircumference(radius);
@@ -1364,3 +1364,16 @@ Asynchronous:
     This non-blocking nature helps improve performance and responsiveness,
     especially in web applications.
 */
+
+/* DOM (Document Object Model):
+    Object{} that represents the page we see in the web browser 
+    and provides us with an API to interact with it.
+    Web browser constructs the DOM when it loads an HTML document,
+    and structures all the elements in a tree-like representation.
+    JavaScript can access the DOM to dynamically 
+    change the content, structure, and style of a web page. */
+
+console.dir(document);
+document.title = "JavaScript Phase-2 Learnings for Self-Reference";
+document.body.style.backgroundColor = "#000000";
+document.getElementById("heading").style.color = "#FFFF";
