@@ -1372,8 +1372,56 @@ Asynchronous:
     and structures all the elements in a tree-like representation.
     JavaScript can access the DOM to dynamically 
     change the content, structure, and style of a web page. */
+// console.dir(document);
+// document.title = "JavaScript Phase-2 Learnings for Self-Reference";
+// document.body.style.backgroundColor = "#000000";
+// document.getElementById("heading").style.color = "#FFFF";
 
-console.dir(document);
-document.title = "JavaScript Phase-2 Learnings for Self-Reference";
-document.body.style.backgroundColor = "#000000";
-document.getElementById("heading").style.color = "#FFFF";
+/* Element Selectors:
+    In JavaScript, element selectors are methods used to access and
+    manipulate HTML elements within the Document Object Model (DOM).
+    These methods enable the selection of one or more elements based
+    on various criteria, such as ID, class, tag name, or CSS selectors.
+    Element Selectors                        What they return
+   ===================                      ==================
+1. document.getElementById()          ->     Element OR null
+2. document.getElementsClassName()    ->     HTML collection
+3. document.getElementsByTagName()    ->     HTML collection
+4. document.querySelector()           ->     First element OR null
+5. document.querySelectorAll()        ->     NodeList */
+
+/* getElementById() */
+const myFruits = document.getElementById("fruits");
+myFruits.style.backgroundColor = "blue";
+myFruits.style.color = "white";
+myFruits.style.textAlign = "center";
+const myVegetables = document.getElementById("vegetables");
+myVegetables.style.backgroundColor = "blue";
+myVegetables.style.color = "white";
+myVegetables.style.textAlign = "center";
+
+/* getElementsByClassName() */
+const fruits = document.getElementsByClassName("fruits");
+Array.from(fruits).forEach(fruit => {
+    fruit.style.backgroundColor = "yellow";
+});
+
+/* getElementsByTagName() */
+const h4Elements = document.getElementsByTagName("h4");
+const liElements = document.getElementsByTagName("li");
+Array.from(h4Elements).forEach(h4Element => {
+    h4Element.style.backgroundColor = "aqua";
+});
+Array.from(liElements).forEach(liElement => {
+    liElement.style.backgroundColor = "lightgreen";
+});
+
+/* querySelector() */
+const element = document.querySelector("li");
+element.style.backgroundColor = "yellow";
+
+/* querySelectorAll() */
+const foooooods = document.querySelectorAll("li");
+foooooods.forEach(food => {
+    food.style.backgroundColor = "yellow";
+});
