@@ -1606,13 +1606,13 @@ document.addEventListener("keydown", event => {
     - Similar to an array, but no (map, filter, reduce).
     - They don't update to automatically reflect changes. */
 /* Create a NodeList */
-let buttons = document.querySelectorAll(".nodeListBtns");
+let buttons = document.querySelectorAll(".nlBtns");
 /* Add an element */
-const newButton = document.createElement("button"); // Step-1
-newButton.textContent = "Button 5"; // Step-2
-newButton.classList = "nodeListBtns";
-document.body.appendChild(newButton); // Step-3
-buttons = document.querySelectorAll(".nodeListBtns"); // manually updating
+// const newButton = document.createElement("button"); // Step-1
+// newButton.textContent = "Button 5"; // Step-2
+// newButton.classList = "nlBtns";
+// document.body.appendChild(newButton); // Step-3
+// buttons = document.querySelectorAll(".nlBtns"); // manually updating
 /* Add HTML/CSS properties */
 buttons.forEach(button => {
     button.style.backgroundColor = "hsl(205, 100%, 60%)";
@@ -1622,7 +1622,7 @@ buttons.forEach(button => {
 // buttons.forEach(button => {
 //     button.addEventListener("click", event => {
 //         event.target.remove();
-//         buttons = document.querySelectorAll(".nodeListBtns"); // manually updating
+//         buttons = document.querySelectorAll(".nlBtns"); // manually updating
 //     });
 // });
 /* "click" event listener */
@@ -1640,5 +1640,75 @@ buttons.forEach(button => {
 buttons.forEach(button => {
     button.addEventListener("mouseout", event => {
         event.target.style.backgroundColor = "hsl(205, 100%, 60%)";
+    });
+});
+
+/* classList property:
+    An element property in JavaScript used to interact
+    with an element's list of classes (CSS classes).
+    Allows making reusable classes for many elements
+    across a webpage.
+    - add()
+    - remove()
+    - toggle(Remove if present, Add if not)
+    - replace(oldClass, newClass)
+    - contains() */
+/* button */
+const clBtn = document.getElementById("clBtn");
+clBtn.classList.add("enabled");
+clBtn.addEventListener('mouseover', event => {
+    event.target.classList.toggle('hover');
+});
+clBtn.addEventListener('mouseout', event => {
+    event.target.classList.toggle('hover');
+});
+clBtn.addEventListener('click', event => {
+    if (event.target.classList.contains("disabled")) {
+        event.target.textContent += "🤬";
+    }
+    else {
+        event.target.classList.replace("enabled", "disabled");
+    }
+});
+/* heading */
+const clHeading = document.getElementById("clHeading");
+clHeading.classList.add("enabled");
+clHeading.addEventListener("mouseover", event => {
+    event.target.classList.toggle('hover');
+});
+clHeading.addEventListener('mouseout', event => {
+    event.target.classList.toggle('hover');
+});
+clHeading.addEventListener('click', event => {
+    if (event.target.classList.contains("disabled")) {
+        event.target.textContent += "🤬";
+    }
+    else {
+        event.target.classList.replace("enabled", "disabled");
+    }
+});
+/* NodeList */
+let clBtns = document.querySelectorAll(".clBtns");
+clBtns.forEach(button => {
+    button.classList.add("enabled");
+});
+clBtns.forEach(button => {
+    button.addEventListener("mouseover", event => {
+        event.target.classList.toggle("hover");
+    });
+});
+clBtns.forEach(button => {
+    button.addEventListener("mouseout", event => {
+        event.target.classList.toggle("hover");
+    });
+});
+clBtns.forEach(button => {
+    button.addEventListener("click", event => {
+        if (event.target.classList.contains("disabled")) {
+            event.target.textContent += "🤬";
+        }
+        else {
+            event.target.classList.replace("enabled", "disabled");
+        }
     });
 });
