@@ -1570,3 +1570,27 @@ document.addEventListener("keydown", event => {
         keyEventsBox.style.left = `${x}px`;
     }
 });
+
+/* Hide/Show HTML Using JavaScript */
+const hideShowButton = document.getElementById("hideShowButton");
+const chihuahua = document.getElementById("chihuahua");
+hideShowButton.addEventListener("click", event => {
+    /* Using display property */
+    if (chihuahua.style.display === "none") {
+        chihuahua.style.display = "block";
+        hideShowButton.textContent = "Hide";
+    }
+    else {
+        chihuahua.style.display = "none";
+        hideShowButton.textContent = "Show";
+    }
+    /* Using visibility property */
+    // if (chihuahua.style.visibility === "hidden") {
+    //     chihuahua.style.visibility = "visible";
+    //     hideShowButton.textContent = "Hide";
+    // }
+    // else {
+    //     chihuahua.style.visibility = "hidden";
+    //     hideShowButton.textContent = "Show";
+    // }
+});
