@@ -1517,7 +1517,7 @@ document.getElementById("fruitsOL").append(newListItem);
 
 /* Mouse Events:
 eventListener -> listen for specific events to create interactive web pages
-events -> click, mouseover, mouseout
+mouse events -> click, mouseover, mouseout
 .addEventListener(event, callback/anonymous-function/arrow-function); */
 const mouseEventsBox = document.getElementById("mouseEventsBox");
 mouseEventsBox.addEventListener("click", event => {

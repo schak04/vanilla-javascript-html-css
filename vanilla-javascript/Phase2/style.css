@@ -52,10 +52,10 @@ button:hover {
 #mouseEventsBox {
     background-color: yellowgreen;
     margin: auto;
-    width: 400px;
-    height: 400px;
-    padding: 40px;
-    font-size: 4rem;
+    width: 200px;
+    height: 200px;
+    padding: 0 40px;
+    font-size: 2rem;
     font-weight: bold;
     display: flex;
     align-items: center;
