@@ -1516,7 +1516,7 @@ document.getElementById("fruitsOL").append(newListItem);
 // document.getElementById("fruitsOL").removeChild(newListItem);
 
 /* Mouse Events:
-eventListener -> listen for specific events to create interactive web pages
+eventListener -> listens for specific events to create interactive web pages
 mouse events -> click, mouseover, mouseout
 .addEventListener(event, callback/anonymous-function/arrow-function); */
 const mouseEventsBox = document.getElementById("mouseEventsBox");
@@ -1531,4 +1531,42 @@ mouseEventsBox.addEventListener("mouseover", event => {
 mouseEventsBox.addEventListener("mouseout", event => {
     event.target.style.backgroundColor = "yellowgreen";
     event.target.textContent = "Click Me 😄";
+});
+
+/* Key Events: 
+eventListener -> listens for specific events to create interactive web pages
+key events -> keydown, keyup (keydown = key pressed down, keyup = key released)
+.addEventListener(event, callback/anonymous-function/arrow-function); */
+const keyEventsBox = document.getElementById("keyEventsBox");
+const moveAmount = 10;
+let x = 0;
+let y = 0;
+document.addEventListener("keydown", event => {
+    keyEventsBox.textContent = "🫨";
+    keyEventsBox.style.backgroundColor = "tomato";
+});
+document.addEventListener("keyup", event => {
+    keyEventsBox.textContent = "😄";
+    keyEventsBox.style.backgroundColor = "aquamarine";
+});
+document.addEventListener("keydown", event => {
+    if (event.key.startsWith("Arrow")) {
+        event.preventDefault();
+        switch (event.key) {
+            case "ArrowUp":
+                y -= moveAmount;
+                break;
+            case "ArrowDown":
+                y += moveAmount;
+                break;
+            case "ArrowLeft":
+                x -= moveAmount;
+                break;
+            case "ArrowRight":
+                x += moveAmount;
+                break;
+        }
+        keyEventsBox.style.top = `${y}px`;
+        keyEventsBox.style.left = `${x}px`;
+    }
 });
