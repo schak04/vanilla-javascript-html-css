@@ -46,5 +46,19 @@ button:hover {
 
 #fruitsOL {
     border: 3px solid;
-    font-size: 2rem;
+    font-size: 20px;
+}
+
+#mouseEventsBox {
+    background-color: yellowgreen;
+    margin: auto;
+    width: 400px;
+    height: 400px;
+    padding: 40px;
+    font-size: 4rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    cursor: crosshair;
 }

@@ -1514,3 +1514,21 @@ document.getElementById("fruitsOL").append(newListItem);
 /* Remove HTML Element */
 // document.body.removeChild(newLink);
 // document.getElementById("fruitsOL").removeChild(newListItem);
+
+/* Mouse Events:
+eventListener -> listen for specific events to create interactive web pages
+events -> click, mouseover, mouseout
+.addEventListener(event, callback/anonymous-function/arrow-function); */
+const mouseEventsBox = document.getElementById("mouseEventsBox");
+mouseEventsBox.addEventListener("click", event => {
+    event.target.style.backgroundColor = "red";
+    event.target.textContent = "YEOWCH 🤕";
+});
+mouseEventsBox.addEventListener("mouseover", event => {
+    event.target.style.backgroundColor = "orange";
+    event.target.textContent = "NOOOO don't!! 😧";
+});
+mouseEventsBox.addEventListener("mouseout", event => {
+    event.target.style.backgroundColor = "yellowgreen";
+    event.target.textContent = "Click Me 😄";
+});
