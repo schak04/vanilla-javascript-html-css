@@ -37,3 +37,14 @@ button:hover {
     white-space: pre-wrap;
     font-family: 'Consolas', 'Menlo', monospace;
 }
+
+.box {
+    border: 3px solid;
+    width: 100%;
+    height: 125px;
+}
+
+#fruitsOL {
+    border: 3px solid;
+    font-size: 2rem;
+}

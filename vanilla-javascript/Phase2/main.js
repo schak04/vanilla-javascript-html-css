@@ -1470,3 +1470,47 @@ const children = element4.children;
 Array.from(children).forEach(child => {
     child.style.backgroundColor = "aqua";
 });
+
+/* Add/Change/Remove HTML Using JavaScript */
+
+/* Example-1: h1 element */
+/* Step-1: Create the element */
+const newH1 = document.createElement("h1");
+/* Step-2: Add attributes/properties */
+newH1.textContent = "I like shrimps!";
+newH1.id = "myH1";
+newH1.style.color = "tomato";
+newH1.style.textAlign = "center";
+/* Step-3: Append element to DOM */
+// document.body.append(newH1);
+// document.body.prepend(newH1);
+document.getElementById("box1").append(newH1);
+// document.getElementById("box1").prepend(newH1);
+// const box4 = document.getElementById("box4");
+// document.body.insertBefore(newH1, box4);
+// const boxes = document.querySelectorAll(".box");
+// document.body.insertBefore(newH1, boxes[0]);
+/* Remove HTML Element */
+// document.body.removeChild(newH1); // if newH1 is a child of the body
+// document.getElementById("box1").removeChild(newH1); // if newH1 is a child of box1
+
+/* Example-2: li element */
+/* Step-1: Create the element */
+const newListItem = document.createElement("li");
+/* Step-2: Add attributes/properties */
+newListItem.textContent = "coconuts";
+newListItem.id = "coconuts";
+newListItem.style.fontWeight = "bold";
+newListItem.style.backgroundColor = "lightgreen";
+/* Step-3: Append element to DOM */
+// document.body.append(newListItem);
+// document.body.prepend(newListItem);
+document.getElementById("fruitsOL").append(newListItem);
+// document.getElementById("fruitsOL").prepend(newListItem);
+// const banana = document.getElementById("banana");
+// document.getElementById("fruitsOL").insertBefore(newListItem, banana);
+// const listItems = document.querySelectorAll("#fruitsOL li");
+// document.getElementById("fruitsOL").insertBefore(newListItem, listItems[1]);
+/* Remove HTML Element */
+// document.body.removeChild(newLink);
+// document.getElementById("fruitsOL").removeChild(newListItem);
