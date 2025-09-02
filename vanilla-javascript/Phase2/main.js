@@ -1472,7 +1472,6 @@ Array.from(children).forEach(child => {
 });
 
 /* Add/Change/Remove HTML Using JavaScript */
-
 /* Example-1: h1 element */
 /* Step-1: Create the element */
 const newH1 = document.createElement("h1");
@@ -1493,6 +1492,30 @@ document.getElementById("box1").append(newH1);
 /* Remove HTML Element */
 // document.body.removeChild(newH1); // if newH1 is a child of the body
 // document.getElementById("box1").removeChild(newH1); // if newH1 is a child of box1
+
+/* Hide/Show HTML Using JavaScript */
+const hideShowButton = document.getElementById("hideShowButton");
+const chihuahua = document.getElementById("chihuahua");
+hideShowButton.addEventListener("click", event => {
+    /* Using display property */
+    if (chihuahua.style.display === "none") {
+        chihuahua.style.display = "block";
+        hideShowButton.textContent = "Hide";
+    }
+    else {
+        chihuahua.style.display = "none";
+        hideShowButton.textContent = "Show";
+    }
+    /* Using visibility property */
+    // if (chihuahua.style.visibility === "hidden") {
+    //     chihuahua.style.visibility = "visible";
+    //     hideShowButton.textContent = "Hide";
+    // }
+    // else {
+    //     chihuahua.style.visibility = "hidden";
+    //     hideShowButton.textContent = "Show";
+    // }
+});
 
 /* Example-2: li element */
 /* Step-1: Create the element */
@@ -1541,17 +1564,15 @@ const keyEventsBox = document.getElementById("keyEventsBox");
 const moveAmount = 10;
 let x = 0;
 let y = 0;
-document.addEventListener("keydown", event => {
-    keyEventsBox.textContent = "🫨";
-    keyEventsBox.style.backgroundColor = "tomato";
-});
 document.addEventListener("keyup", event => {
     keyEventsBox.textContent = "😄";
     keyEventsBox.style.backgroundColor = "aquamarine";
 });
 document.addEventListener("keydown", event => {
     if (event.key.startsWith("Arrow")) {
-        event.preventDefault();
+        event.preventDefault(); // prevents auto-scrolling
+        keyEventsBox.textContent = "🫨";
+        keyEventsBox.style.backgroundColor = "tomato";
         switch (event.key) {
             case "ArrowUp":
                 y -= moveAmount;
@@ -1569,28 +1590,55 @@ document.addEventListener("keydown", event => {
         keyEventsBox.style.top = `${y}px`;
         keyEventsBox.style.left = `${x}px`;
     }
+    else {
+        keyEventsBox.textContent = "😯";
+        keyEventsBox.style.backgroundColor = "yellow";
+    }
 });
 
-/* Hide/Show HTML Using JavaScript */
-const hideShowButton = document.getElementById("hideShowButton");
-const chihuahua = document.getElementById("chihuahua");
-hideShowButton.addEventListener("click", event => {
-    /* Using display property */
-    if (chihuahua.style.display === "none") {
-        chihuahua.style.display = "block";
-        hideShowButton.textContent = "Hide";
-    }
-    else {
-        chihuahua.style.display = "none";
-        hideShowButton.textContent = "Show";
-    }
-    /* Using visibility property */
-    // if (chihuahua.style.visibility === "hidden") {
-    //     chihuahua.style.visibility = "visible";
-    //     hideShowButton.textContent = "Hide";
-    // }
-    // else {
-    //     chihuahua.style.visibility = "hidden";
-    //     hideShowButton.textContent = "Show";
-    // }
+/* NodeLists:
+    In JavaScript, a NodeList is an object representing a collection
+    of nodes extracted from a document, such as HTML elements, text nodes,
+    or comment nodes. It is commonly returned by DOM methods like
+    document.querySelectorAll() or element.childNodes.
+    - They are static collections of HTML elements by (id, class, element).
+    - Can be created by using querySelectorAll().
+    - Similar to an array, but no (map, filter, reduce).
+    - They don't update to automatically reflect changes. */
+/* Create a NodeList */
+let buttons = document.querySelectorAll(".nodeListBtns");
+/* Add an element */
+const newButton = document.createElement("button"); // Step-1
+newButton.textContent = "Button 5"; // Step-2
+newButton.classList = "nodeListBtns";
+document.body.appendChild(newButton); // Step-3
+buttons = document.querySelectorAll(".nodeListBtns"); // manually updating
+/* Add HTML/CSS properties */
+buttons.forEach(button => {
+    button.style.backgroundColor = "hsl(205, 100%, 60%)";
+    button.textContent += " :D";
+});
+/* Remove an element */
+// buttons.forEach(button => {
+//     button.addEventListener("click", event => {
+//         event.target.remove();
+//         buttons = document.querySelectorAll(".nodeListBtns"); // manually updating
+//     });
+// });
+/* "click" event listener */
+buttons.forEach(button => {
+    button.addEventListener("click", event => {
+        event.target.style.backgroundColor = "tomato";
+    });
+});
+/* "mouseover" + "mouseout" event listener */
+buttons.forEach(button => {
+    button.addEventListener("mouseover", event => {
+        event.target.style.backgroundColor = "hsl(205, 100%, 40%)";
+    });
+});
+buttons.forEach(button => {
+    button.addEventListener("mouseout", event => {
+        event.target.style.backgroundColor = "hsl(205, 100%, 60%)";
+    });
 });

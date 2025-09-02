@@ -76,3 +76,11 @@ button:hover {
     align-items: center;
     position: relative;
 }
+
+.nodeListBtns {
+    font-size: 1.4rem;
+    margin: 10px;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+}
