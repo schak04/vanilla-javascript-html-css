@@ -1712,3 +1712,43 @@ clBtns.forEach(button => {
         }
     });
 });
+
+/*
+Callback Hell:
+    Callback hell, also known as the "Pyramid of Doom", is a phenomenon in JavaScript
+    that occurs when multiple asynchronous operations are nested within each other
+    using callback functions. This creates deeply indented and complex code structures
+    that become difficult to read, understand, maintain, and debug.
+Solution: Promises + Async/Await */                         
+
+function task1(callback) {
+    setTimeout(() => {
+        console.log("Task 1 done");
+        callback();
+    }, 2000);
+}
+function task2(callback) {
+    setTimeout(() => {
+        console.log("Task 2 done");
+        callback();
+    }, 1000);
+}
+function task3(callback) {
+    setTimeout(() => {
+        console.log("Task 3 done");
+        callback();
+    }, 3000);
+}
+function task4(callback) {
+    setTimeout(() => {
+        console.log("Task 4 done");
+        callback();
+    }, 1500);
+}
+task1(() => {
+    task2(() => {
+        task3(() => {
+            task4(() => console.log("All tasks completed"));
+        })
+    });
+})
