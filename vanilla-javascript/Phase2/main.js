@@ -1719,7 +1719,7 @@ Callback Hell:
     that occurs when multiple asynchronous operations are nested within each other
     using callback functions. This creates deeply indented and complex code structures
     that become difficult to read, understand, maintain, and debug.
-Solution: Promises + Async/Await */                         
+Solution: Promises + Async/Await */
 
 function task1(callback) {
     setTimeout(() => {
@@ -1752,3 +1752,56 @@ task1(() => {
         })
     });
 });
+
+/* Promise: An Object that manages asynchronous operations.
+            Wrap a Promise Object around {asynchronous code}
+            "I promise to return a value"
+            PENDING -> RESOLVED or REJECTED
+            new Promise((resolve, reject) => {asynchronous code})
+Do these chores in order:
+    1. walk the dog
+    2. clean the kitchen
+    3. take out the trash */
+function walkDog() {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            const dogWalked = false;
+            if (dogWalked) {
+                resolve("You've taken the dog on a walk 🐕");
+            }
+            else {
+                reject("You DIDN'T walk the dog");
+            }
+        }, 1500);
+    });
+}
+function cleanKitchen() {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            const kitchenCleaned = true;
+            if (kitchenCleaned) {
+                resolve("You've cleaned the kitchen 🧹");
+            }
+            else {
+                reject("You DIDN'T clean the kitchen");
+            }
+        }, 2500);
+    });
+}
+function takeOutTrash() {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            const trashTakenOut = true;
+            if (trashTakenOut) {
+                resolve("You've taken out the trash ♻");
+            }
+            else {
+                reject("You DIDN'T take out the trash");
+            }
+        }, 500);
+    });
+}
+walkDog().then(value => { console.log(value); return cleanKitchen() })
+    .then(value => { console.log(value); return takeOutTrash() })
+    .then(value => { console.log(value); console.log("You finished all the chores!") })
+    .catch(error => console.error(error));
