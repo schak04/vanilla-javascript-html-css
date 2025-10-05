@@ -1751,4 +1751,4 @@ task1(() => {
             task4(() => console.log("All tasks completed"));
         })
     });
-})
+});
