@@ -1,0 +1,22 @@
+[
+    {
+        "name": "Silksong",
+        "price": 880,
+        "hasReleased": true
+    },
+    {
+        "name": "Expedition 33",
+        "price": 3000,
+        "hasReleased": true
+    },
+    {
+        "name": "Borderlands 4",
+        "price": 4000,
+        "hasReleased": true
+    },
+    {
+        "name": "GTA 6",
+        "price": null,
+        "hasReleased": false
+    }
+]

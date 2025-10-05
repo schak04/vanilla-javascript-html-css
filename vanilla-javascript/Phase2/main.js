@@ -1826,3 +1826,32 @@ async function doChores() {
     }
 }
 doChores();
+
+/* JSON (JavaScript Object Notation) data-interchange format: 
+    Used for exchanging data between a server and a web application.
+    JSON files -> {key:value} OR [value1, value2, value3]
+    JSON.stringify() -> converts a JS object into a JSON string.
+    JSON.parse() -> converts a JSON string into a JS object. */
+/* JSON.stringify() */
+const titles = ["Silksong", "Expedition 33", "Borderlands 4", "GTA 6"];
+const gaame = { "name": "Silksong", "price": 880, "hasReleased": true, "mechanics": ["diagonal pogo", "GARAMA", "grappling"] };
+const gamess = [{ "name": "Silksong", "price": 880, "hasReleased": true },
+{ "name": "Expedition 33", "price": 3000, "hasReleased": true },
+{ "name": "Borderlands 4", "price": 4000, "hasReleased": true },
+{ "name": "GTA 6", "price": null, "hasReleased": false }];
+const jsonString = JSON.stringify(gamess);
+console.log(jsonString);
+/* JSON.parse() */
+const jsonTitles = `["Silksong", "Expedition 33", "Borderlands 4", "GTA 6"]`;
+const jsonGame = `{"name": "Silksong", "price": 880, "hasReleased": true, "mechanics": ["diagonal pogo", "GARAMA!", "grappling"]}`;
+const jsonGames = `[{"name": "Silksong", "price": 880, "hasReleased": true},
+                    {"name": "Expedition 33", "price": 3000, "hasReleased": true},
+                    {"name": "Borderlands 4", "price": 4000, "hasReleased": true},
+                    {"name": "GTA 6", "price": null, "hasReleased": false}]`;
+const parsedData = JSON.parse(jsonGames);
+console.log(parsedData);
+/* fetch() -> returns a Promise */
+fetch("gamess.json")
+    .then(response => response.json()) /* response.json() also returns a Promise */
+    .then(values => values.forEach(value => console.log(value)))
+    .catch(error => console.error(error));

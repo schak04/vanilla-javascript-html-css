@@ -1,0 +1,10 @@
+{
+    "name": "Silksong",
+    "price": 880,
+    "hasReleased": true,
+    "mechanics": [
+        "diagonal pogo",
+        "GARAMA",
+        "grappling"
+    ]
+}
