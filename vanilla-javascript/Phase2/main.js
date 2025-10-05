@@ -1720,38 +1720,37 @@ Callback Hell:
     using callback functions. This creates deeply indented and complex code structures
     that become difficult to read, understand, maintain, and debug.
 Solution: Promises + Async/Await */
-
-function task1(callback) {
-    setTimeout(() => {
-        console.log("Task 1 done");
-        callback();
-    }, 2000);
-}
-function task2(callback) {
-    setTimeout(() => {
-        console.log("Task 2 done");
-        callback();
-    }, 1000);
-}
-function task3(callback) {
-    setTimeout(() => {
-        console.log("Task 3 done");
-        callback();
-    }, 3000);
-}
-function task4(callback) {
-    setTimeout(() => {
-        console.log("Task 4 done");
-        callback();
-    }, 1500);
-}
-task1(() => {
-    task2(() => {
-        task3(() => {
-            task4(() => console.log("All tasks completed"));
-        })
-    });
-});
+// function task1(callback) {
+//     setTimeout(() => {
+//         console.log("Task 1 done");
+//         callback();
+//     }, 2000);
+// }
+// function task2(callback) {
+//     setTimeout(() => {
+//         console.log("Task 2 done");
+//         callback();
+//     }, 1000);
+// }
+// function task3(callback) {
+//     setTimeout(() => {
+//         console.log("Task 3 done");
+//         callback();
+//     }, 3000);
+// }
+// function task4(callback) {
+//     setTimeout(() => {
+//         console.log("Task 4 done");
+//         callback();
+//     }, 1500);
+// }
+// task1(() => {
+//     task2(() => {
+//         task3(() => {
+//             task4(() => console.log("All tasks completed"));
+//         })
+//     });
+// });
 
 /* Promise: An Object that manages asynchronous operations.
             Wrap a Promise Object around {asynchronous code}
@@ -1801,7 +1800,29 @@ function takeOutTrash() {
         }, 500);
     });
 }
-walkDog().then(value => { console.log(value); return cleanKitchen() })
-    .then(value => { console.log(value); return takeOutTrash() })
-    .then(value => { console.log(value); console.log("You finished all the chores!") })
-    .catch(error => console.error(error));
+// walkDog().then(value => { console.log(value); return cleanKitchen() })
+//     .then(value => { console.log(value); return takeOutTrash() })
+//     .then(value => { console.log(value); console.log("You have finished all the chores!") })
+//     .catch(error => console.error(error));
+
+/* Async/Await:
+    - Async: makes a function return a promise
+    - Await: makes an async function wait for a promise
+-> Allows us to write asynchronous code in a synchronous manner.
+-> Async doesn't have resolve or reject parameters
+-> Everything after Await is placed in an event queue */
+async function doChores() {
+    try {
+        const walkDogResult = await walkDog();
+        console.log(walkDogResult);
+        const cleanKitchenResult = await cleanKitchen();
+        console.log(cleanKitchenResult);
+        const takeOutTrashResult = await takeOutTrash();
+        console.log(takeOutTrashResult);
+        console.log("You've finished all the chores!");
+    }
+    catch (error) {
+        console.error(error);
+    }
+}
+doChores();
