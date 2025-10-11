@@ -1753,10 +1753,12 @@ Solution: Promises + Async/Await */
 // });
 
 /* Promise: An Object that manages asynchronous operations.
-            Wrap a Promise Object around {asynchronous code}
-            "I promise to return a value"
-            PENDING -> RESOLVED or REJECTED
-            new Promise((resolve, reject) => {asynchronous code})
+            A Promise in JavaScript represents a value that may be available now, later, or never.
+            It’s an object that handles asynchronous operations (like fetching data or reading files).
+        Wrap a Promise Object around {asynchronous code}
+        "I promise to return a value"
+        PENDING -> RESOLVED or REJECTED
+        new Promise((resolve, reject) => {asynchronous code})
 Do these chores in order:
     1. walk the dog
     2. clean the kitchen
@@ -1806,11 +1808,15 @@ function takeOutTrash() {
 //     .catch(error => console.error(error));
 
 /* Async/Await:
-    - Async: makes a function return a promise
-    - Await: makes an async function wait for a promise
--> Allows us to write asynchronous code in a synchronous manner.
+Async: 
+    When we mark a function as async, it automatically returns a Promise.
+    Inside an async function, we can use await.
+Await:
+    It makes an async function wait for a Promise -> it is used inside async functions only.
+    It pauses the execution of the function until the Promise resolves or rejects.
+-> They allow us to write asynchronous code in a synchronous manner.
 -> Async doesn't have resolve or reject parameters
--> Everything after Await is placed in an event queue */
+-> Everything after await is placed in an event queue */
 async function doChores() {
     try {
         const walkDogResult = await walkDog();
