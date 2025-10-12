@@ -1812,7 +1812,7 @@ Async:
     When we mark a function as async, it automatically returns a Promise.
     Inside an async function, we can use await.
 Await:
-    It makes an async function wait for a Promise -> it is used inside async functions only.
+    It makes an async function wait for a Promise. It is used inside async functions only.
     It pauses the execution of the function until the Promise resolves or rejects.
 -> They allow us to write asynchronous code in a synchronous manner.
 -> Async doesn't have resolve or reject parameters
