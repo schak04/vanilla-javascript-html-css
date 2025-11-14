@@ -665,7 +665,11 @@ else if (date > SaptoTurns21) console.log("Sapto is 21 or older.");
     
     setTimeout(functionToExecute, delayInMilliseconds, param1, param2, ...);
     OR to put it simply:
-    setTimeout(callback, delay); */
+    setTimeout(callback, delay);
+    
+Note: setTimeout schedules a function to run after the current synchronous code
+      execution has completed and the call stack is empty.
+      This is true even if you set the delay to 0 (e.g., setTimeout(callback, 0)). */
 
 // 1
 function hello() {
