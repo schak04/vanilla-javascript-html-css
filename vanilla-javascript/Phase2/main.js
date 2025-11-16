@@ -1086,7 +1086,10 @@ console.log(total);
     of related data and more complex entities. Unlike primitive data types
     (like numbers, strings, booleans, null, undefined, and symbols) which hold a single value,
     objects can store multiple values as key-value pairs.
-    object = {key:value, function()} */
+    object = {key:value, function()} 
+    
+    Inside an object literal, we define properties either by assigning a value (which can be a function) to a key, or by using method shorthand.
+    We cannot declare a standalone function using the function keyword directly inside the {} of an object literal. */
 
 const person = {
     firstName: "Saptaparno",
