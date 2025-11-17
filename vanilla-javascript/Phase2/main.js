@@ -968,7 +968,15 @@ console.log(minimumAge);
 /* Function Expressions: (basically a way to define functions as values or variables; not to be confused with function declarations)
     In JavaScript, a function expression defines a function within an expression,
     typically by assigning it to a variable. This contrasts with a function declaration,
-    which defines a named function as a standalone statement. */
+    which defines a named function as a standalone statement. 
+    
+Key Differences: Function Declaration vs. Function Expression
+=============================================================
+Function Declaration: The function is defined and can be called anywhere in the code
+                      (even before it’s defined, due to something called "hoisting").
+Function Expression: The function is defined as part of an expression (usually assigned to a variable),
+                     and it can only be called after the line where it’s defined.
+*/
 
 // 1
 
