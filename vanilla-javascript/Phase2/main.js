@@ -1852,7 +1852,10 @@ doChores();
     Used for exchanging data between a server and a web application.
     JSON files -> {key:value} OR [value1, value2, value3]
     JSON.stringify() -> converts a JS object into a JSON string.
-    JSON.parse() -> converts a JSON string into a JS object. */
+    JSON.parse() -> converts a JSON string into a JS object.
+Note: Parsed data is information that has been converted from a raw,
+    unstructured format into a structured and readable format by a
+    process called data parsing. */
 /* JSON.stringify() */
 const titles = ["Silksong", "Expedition 33", "Borderlands 4", "GTA 6"];
 const gaame = { "name": "Silksong", "price": 880, "hasReleased": true, "mechanics": ["diagonal pogo", "GARAMA", "grappling"] };
