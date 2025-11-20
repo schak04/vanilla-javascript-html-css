@@ -1848,15 +1848,20 @@ async function doChores() {
 }
 doChores();
 
-/* JSON (JavaScript Object Notation) data-interchange format: 
+/* JSON (JavaScript Object Notation):
     Used for exchanging data between a server and a web application.
-    JSON files -> {key:value} OR [value1, value2, value3]
-    JSON.stringify() -> converts a JS object into a JSON string.
-    JSON.parse() -> converts a JSON string into a JS object.
-Note: Parsed data is information that has been converted from a raw,
-      unstructured format into a structured and readable format by a
-      process called data parsing. */
-/* JSON.stringify() */
+JSON files can contain:
+    - Objects  -> { key: value }
+    - Arrays   -> [ value1, value2, value3 ]
+JSON.stringify(value)
+    -> Converts ANY valid JavaScript value (object, array, number, string, boolean, null)
+       into a JSON-formatted string.
+JSON.parse(jsonString)
+    -> Converts a JSON string back into the original JavaScript value
+       (object, array, etc.).
+Note:
+    Parsed data means data converted from raw text (like a JSON string)
+    into a structured JavaScript value by parsing. */
 const titles = ["Silksong", "Expedition 33", "Borderlands 4", "GTA 6"];
 const gaame = { "name": "Silksong", "price": 880, "hasReleased": true, "mechanics": ["diagonal pogo", "GARAMA", "grappling"] };
 const gamess = [{ "name": "Silksong", "price": 880, "hasReleased": true },
